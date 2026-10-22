@@ -12,7 +12,7 @@ import type { ParsedGroup } from "@/lib/scriptUi";
 
 const icon = (name: string): LucideIcon => (icons as Record<string, LucideIcon>)[name] ?? icons.Layers;
 
-const toGroup = (g: ParsedGroup): Group => ("tabs" in g ? g : { title: g.title, icon: icon(g.icon), items: g.items });
+const toGroup = (g: ParsedGroup): Group => ("tabs" in g ? g : { title: g.title, icon: icon(g.icon), items: g.items, collapsed: g.collapsed });
 
 export default function ScriptUiWindow({ name, ui, onClose }: { name: string; ui: unknown; onClose: () => void }) {
   useEffect(() => {

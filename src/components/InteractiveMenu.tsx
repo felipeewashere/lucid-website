@@ -49,7 +49,7 @@ export type Item =
   | { t: "dep"; on: string; equals?: Value; items: Item[] };
 
 export type Group =
-  | { title: string; icon: LucideIcon; items: Item[] }
+  | { title: string; icon: LucideIcon; items: Item[]; collapsed?: boolean }
   | { title: string; icon?: undefined; tabs: { name: string; items: Item[] }[] };
 
 export type Page = { name: string; left: Group[]; right: Group[] };
@@ -1238,7 +1238,7 @@ function Items({ items, q }: { items: Item[]; q: string }) {
 
 function GroupBox({ group }: { group: Group }) {
   const { query } = useStore();
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(!("tabs" in group) && group.collapsed === true);
   const [tab, setTab] = useState(0);
   const tabbed = "tabs" in group;
 
@@ -1287,7 +1287,8 @@ function GroupBox({ group }: { group: Group }) {
               <span className="flex-1 truncate py-[3px] pl-[12px] pr-1.5 text-[15px]" style={{ color: T.font }}>{group.title}</span>
               {collapsed ? <ChevronDown size={22} style={{ color: T.font }} /> : <ChevronUp size={22} style={{ color: T.font }} />}
             </button>
-            {!collapsed && (
+            {/* A search hit opens a minimised groupbox so the matching control is visible. */}
+            {(!collapsed || !!q || titleHit) && (
               <>
                 <div className="h-px" style={{ background: T.outline }} />
                 <div className="flex flex-col gap-2 p-[7px]">

@@ -7,7 +7,7 @@ import type { Item, Value } from "@/components/InteractiveMenu";
  */
 
 export type ParsedGroup =
-  | { title: string; icon: string; items: Item[] }
+  | { title: string; icon: string; items: Item[]; collapsed?: boolean }
   | { title: string; tabs: { name: string; items: Item[] }[] };
 export type ParsedPage = { name: string; left: ParsedGroup[]; right: ParsedGroup[] };
 export type ParsedTab = { name: string; icon: string; pinned?: boolean; pages: ParsedPage[] };
@@ -112,7 +112,7 @@ function parseGroups(raw: unknown, path: string, ctx: Ctx): ParsedGroup[] {
       if (tabs.length === 0) return fail(ctx, p, `"tabs" must not be empty`);
       out.push({ title: r.title as string, tabs });
     } else {
-      out.push({ title: r.title as string, icon: str(r.icon) ? (r.icon as string) : "Layers", items: parseItems(r.items, `${p}.items`, ctx) });
+      out.push({ title: r.title as string, icon: str(r.icon) ? (r.icon as string) : "Layers", items: parseItems(r.items, `${p}.items`, ctx), collapsed: r.collapsed === true });
     }
   });
   return out;

@@ -21,6 +21,14 @@ function getYouTubeThumbnail(videoId: string): string {
   return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 }
 
+/** maxresdefault is missing on videos uploaded below 720p: YouTube answers with a 120x90 grey placeholder (or an error),
+ *  so drop to hqdefault, which always exists. Wired to both onLoad and onError. */
+function fixThumb(e: React.SyntheticEvent<HTMLImageElement>) {
+  const img = e.currentTarget;
+  if (img.src.includes("maxresdefault") && (e.type === "error" || img.naturalWidth <= 120))
+    img.src = img.src.replace("maxresdefault", "hqdefault");
+}
+
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
@@ -59,7 +67,7 @@ export default function ShowcasesPage() {
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
             <p>See Lucid in action. Fresh videos and clips from the crypt.</p>
             <a
-              href="https://www.youtube.com/@mngr06/featured"
+              href="https://www.youtube.com/@OffLucidgg"
               target="_blank"
               rel="noreferrer"
               className="flex shrink-0 items-center gap-2 border border-red-500/40 bg-red-600/10 px-4 py-2 font-mono text-xs font-bold tracking-wider text-red-400 transition-all hover:bg-red-600/20 hover:shadow-[0_0_24px_-6px_rgba(239,68,68,0.7)]"
@@ -82,7 +90,7 @@ export default function ShowcasesPage() {
           >
             <div className="relative aspect-video w-full overflow-hidden md:aspect-[21/9]">
               {latestThumb ? (
-                <img src={latestThumb} alt={latest.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src={latestThumb} alt={latest.title} onLoad={fixThumb} onError={fixThumb} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
               ) : (
                 <div className="h-full w-full bg-secondary/40" />
               )}
@@ -137,7 +145,7 @@ export default function ShowcasesPage() {
                   >
                     <div className="relative aspect-video overflow-hidden border-b border-border">
                       {thumb ? (
-                        <img src={thumb} alt={item.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <img src={thumb} alt={item.title} onLoad={fixThumb} onError={fixThumb} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
                       ) : (
                         <div className="h-full w-full bg-secondary/40" />
                       )}

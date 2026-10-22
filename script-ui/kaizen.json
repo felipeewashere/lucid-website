@@ -1,0 +1,3324 @@
+{
+  "game": "Kaizen",
+  "tabs": [
+    {
+      "name": "Credits",
+      "icon": "Sparkles",
+      "pages": [
+        {
+          "name": "Credits",
+          "left": [
+            {
+              "title": "About Lucid",
+              "icon": "BadgeInfo",
+              "items": [
+                {
+                  "t": "label",
+                  "text": "Game: Kaizen"
+                },
+                {
+                  "t": "label",
+                  "text": "Build ID __BUILD_ID__"
+                },
+                {
+                  "t": "label",
+                  "text": "Executor: Mock"
+                }
+              ]
+            },
+            {
+              "title": "Community",
+              "icon": "Link2",
+              "items": [
+                {
+                  "t": "button",
+                  "label": "Discord"
+                },
+                {
+                  "t": "button",
+                  "label": "Script Page"
+                },
+                {
+                  "t": "button",
+                  "label": "Youtube"
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Release Notes",
+              "icon": "NotebookTabs",
+              "items": [
+                {
+                  "t": "label",
+                  "text": "+ Rebuilt Kaizen on the Lucid template"
+                },
+                {
+                  "t": "label",
+                  "text": "+ Packets checked against the game's own Nodeware definitions"
+                },
+                {
+                  "t": "label",
+                  "text": "+ Combat through the game's own input binds (no VirtualInputManager)"
+                },
+                {
+                  "t": "label",
+                  "text": "+ Auto Missions, Auto Combat Clash, Auto Domain Clash"
+                },
+                {
+                  "t": "label",
+                  "text": "+ Quests, bosses and the fishing shop read from game data"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "icon": "LayoutDashboard",
+      "pages": [
+        {
+          "name": "Dashboard",
+          "left": [
+            {
+              "title": "Running",
+              "icon": "Activity",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "label",
+                  "text": "Nothing is running"
+                },
+                {
+                  "t": "button",
+                  "label": "Stop Everything"
+                }
+              ]
+            }
+          ],
+          "right": []
+        }
+      ]
+    },
+    {
+      "name": "Automation",
+      "icon": "Bot",
+      "pages": [
+        {
+          "name": "Farm",
+          "left": [
+            {
+              "title": "Main Farm",
+              "icon": "Swords",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_FarmMobs",
+                  "label": "Mobs",
+                  "values": [
+                    "Any Mob"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_FarmBosses",
+                  "label": "Bosses",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_MainFarm",
+                  "label": "Auto Farm",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            },
+            {
+              "title": "Auto Quest",
+              "tabs": [
+                {
+                  "name": "Manual",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "kaizen_Quest",
+                      "label": "Quest",
+                      "values": [
+                        "Loading..."
+                      ],
+                      "def": "Loading..."
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_QuestGrab",
+                      "label": "Auto Grab Quest",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_QuestFarm",
+                      "label": "Auto Farm Quest",
+                      "def": false
+                    },
+                    {
+                      "t": "label",
+                      "text": "Idle"
+                    }
+                  ]
+                },
+                {
+                  "name": "Kaitun",
+                  "items": [
+                    {
+                      "t": "label",
+                      "text": "Current: None"
+                    },
+                    {
+                      "t": "label",
+                      "text": "Next: None"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_Kaitun",
+                      "label": "Start Kaitun",
+                      "def": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Auto World Bosses",
+              "icon": "Crown",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_Bosses",
+                  "label": "Bosses",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoBosses",
+                  "label": "Auto World Bosses",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "kaizen_AutoBosses",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_BossHop",
+                      "label": "Server Hop If Not Up",
+                      "def": false
+                    }
+                  ]
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            },
+            {
+              "title": "Auto NPC Quests",
+              "icon": "MessageCircle",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "label",
+                  "text": "Takes the quests the wandering NPCs offer and plays them. Mission Types in the Missions tab filter them."
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoEncounters",
+                  "label": "Auto NPC Quests",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Auto Farm Chests",
+              "icon": "PackageOpen",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoChests",
+                  "label": "Auto Farm Chests",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "kaizen_AutoChests",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_ChestHop",
+                      "label": "Server Hop When Empty",
+                      "def": false
+                    }
+                  ]
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            },
+            {
+              "title": "Auto Farm Collectibles",
+              "icon": "Gem",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_CollectibleTypes",
+                  "label": "Collectibles",
+                  "values": [
+                    "EnchantedCrystals",
+                    "LotusOoze",
+                    "RottenBlood",
+                    "SlimeSample"
+                  ],
+                  "multi": true,
+                  "def": [
+                    "EnchantedCrystals",
+                    "LotusOoze",
+                    "RottenBlood",
+                    "SlimeSample"
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoCollectibles",
+                  "label": "Auto Farm Collectibles",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            },
+            {
+              "title": "Auto Daily Quests",
+              "icon": "CalendarCheck",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoDailyQuests",
+                  "label": "Auto Daily Quests",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_ClaimDailies",
+                  "label": "Auto Claim Quests",
+                  "def": true
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_ClaimLogin",
+                  "label": "Auto Claim Login Reward",
+                  "def": true
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            },
+            {
+              "title": "Infinite EXP",
+              "icon": "Zap",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "label",
+                  "text": "Repeats a quest hand-in, paced so it never spams."
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_ExpLv13",
+                  "label": "Start [Lv. 13]",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_ExpLv90",
+                  "label": "Start [Lv. 90]",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_ExpLv98",
+                  "label": "Start [Lv. 98]",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_HideNotifications",
+                  "label": "Hide Notifications",
+                  "def": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Dungeons",
+          "left": [
+            {
+              "title": "Auto Raid",
+              "icon": "Swords",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_Raid",
+                  "label": "Raid",
+                  "values": [
+                    "SchoolRaid",
+                    "Choso",
+                    "Mahito",
+                    "Zenin",
+                    "MahoragaRaid",
+                    "YutaRaid",
+                    "TojiRaid",
+                    "JogoRaid",
+                    "DagonRaid",
+                    "GetoRaid",
+                    "GojoRaid",
+                    "HanamiRaid",
+                    "NaoyaRaid",
+                    "UroRaid",
+                    "MeiMeiRaid"
+                  ],
+                  "def": "SchoolRaid"
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_RaidDifficulty",
+                  "label": "Difficulty",
+                  "values": [
+                    "Easy",
+                    "Normal",
+                    "Hard",
+                    "Extreme",
+                    "Nightmare"
+                  ],
+                  "def": "Normal"
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoRaid",
+                  "label": "Auto Raid",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_RaidReplay",
+                  "label": "Auto Replay",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            },
+            {
+              "title": "Auto Infinite Mode",
+              "tabs": [
+                {
+                  "name": "Main",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_AutoInfinite",
+                      "label": "Auto Infinite Mode",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_InfiniteReplay",
+                      "label": "Auto Replay",
+                      "def": false
+                    },
+                    {
+                      "t": "label",
+                      "text": "Idle"
+                    }
+                  ]
+                },
+                {
+                  "name": "Cards",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "kaizen_InfiniteSkillGrades",
+                      "label": "Skill Grades",
+                      "values": [
+                        "Highest Grade",
+                        "Grade1",
+                        "Grade2",
+                        "Grade3",
+                        "Grade4",
+                        "SemiSpecialGrade",
+                        "SpecialGrade"
+                      ],
+                      "multi": true,
+                      "def": [
+                        "Highest Grade"
+                      ]
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "kaizen_InfiniteStats",
+                      "label": "Stat Types",
+                      "values": [
+                        "Highest Grade",
+                        "Damage",
+                        "Max Health",
+                        "Movement Speed",
+                        "Cooldown Reduction"
+                      ],
+                      "multi": true,
+                      "def": [
+                        "Highest Grade"
+                      ]
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "kaizen_InfiniteUtilityGrades",
+                      "label": "Utility Grades",
+                      "values": [
+                        "Highest Grade",
+                        "Grade1",
+                        "Grade2",
+                        "Grade3",
+                        "Grade4",
+                        "SemiSpecialGrade",
+                        "SpecialGrade"
+                      ],
+                      "multi": true,
+                      "def": [
+                        "Highest Grade"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Auto Expedition",
+              "icon": "Map",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_ExpeditionGrade",
+                  "label": "Expedition",
+                  "values": [
+                    "Grade 4",
+                    "Grade 3",
+                    "Grade 2",
+                    "Grade 1",
+                    "Grade S+"
+                  ],
+                  "def": "Grade 4"
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_ExpeditionDifficulty",
+                  "label": "Difficulty",
+                  "values": [
+                    "Normal",
+                    "Hard",
+                    "Nightmare"
+                  ],
+                  "def": "Normal"
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoExpedition",
+                  "label": "Auto Expedition",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_ExpeditionReplay",
+                  "label": "Auto Replay",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            },
+            {
+              "title": "Dungeon Safety",
+              "icon": "Shield",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "kaizen_SoloGuard",
+                  "label": "Solo Guard",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Low health retreat is always on in dungeons: below 10% you rest at a safe spot until 75%."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Missions",
+          "left": [
+            {
+              "title": "Auto Missions",
+              "icon": "ClipboardList",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_MissionTabs",
+                  "label": "Boards",
+                  "values": [
+                    "Missions",
+                    "Special",
+                    "Daily"
+                  ],
+                  "multi": true,
+                  "def": [
+                    "Missions",
+                    "Special"
+                  ]
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_MissionKinds",
+                  "label": "Mission Types",
+                  "values": [
+                    "Elimination",
+                    "BossHunt",
+                    "Interception",
+                    "Escort",
+                    "Retrieval",
+                    "CursedNest",
+                    "DomainBreach"
+                  ],
+                  "multi": true,
+                  "def": [
+                    "Elimination",
+                    "BossHunt",
+                    "Interception",
+                    "Escort",
+                    "Retrieval",
+                    "CursedNest",
+                    "DomainBreach"
+                  ]
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_MissionMinGrade",
+                  "label": "Lowest Grade",
+                  "values": [
+                    "Grade 4",
+                    "Grade 3",
+                    "Grade 2",
+                    "Grade 1",
+                    "Special Grade"
+                  ],
+                  "def": "Grade 4"
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_MissionConfirm",
+                  "label": "Use Daily Charges",
+                  "def": true
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_MissionReroll",
+                  "label": "Reroll When Nothing Fits",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "kaizen_MissionReroll",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "kaizen_MissionKeepRerolls",
+                      "label": "Keep Rerolls",
+                      "min": 0,
+                      "max": 10,
+                      "def": 0
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoMissions",
+                  "label": "Auto Missions",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            }
+          ],
+          "right": []
+        },
+        {
+          "name": "Progress",
+          "left": [
+            {
+              "title": "Auto Stats",
+              "icon": "Dumbbell",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_Stats",
+                  "label": "Stats",
+                  "values": [
+                    "Melee",
+                    "Defense",
+                    "Stamina",
+                    "Weapon",
+                    "CursedEnergy"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoStats",
+                  "label": "Auto Stats",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            },
+            {
+              "title": "Auto Fishing",
+              "tabs": [
+                {
+                  "name": "Main",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_AutoFishing",
+                      "label": "Auto Fishing",
+                      "def": false
+                    },
+                    {
+                      "t": "slider",
+                      "id": "kaizen_FishCatchDelay",
+                      "label": "Catch Delay",
+                      "min": 0,
+                      "max": 5,
+                      "def": 1,
+                      "dec": 1,
+                      "suffix": "s"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_FishFreeze",
+                      "label": "Freeze Position",
+                      "def": false
+                    },
+                    {
+                      "t": "label",
+                      "text": "Idle"
+                    }
+                  ]
+                },
+                {
+                  "name": "Shop",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "kaizen_FishRod",
+                      "label": "Rod",
+                      "values": [
+                        "Loading..."
+                      ],
+                      "def": "Loading..."
+                    },
+                    {
+                      "t": "button",
+                      "label": "Buy Rod"
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "kaizen_FishBaits",
+                      "label": "Baits",
+                      "values": [
+                        "Loaded in game"
+                      ],
+                      "multi": true,
+                      "def": []
+                    },
+                    {
+                      "t": "button",
+                      "label": "Buy Once"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "kaizen_FishAutoBait",
+                      "label": "Auto Buy Bait",
+                      "def": false
+                    },
+                    {
+                      "t": "dep",
+                      "on": "kaizen_FishAutoBait",
+                      "items": [
+                        {
+                          "t": "slider",
+                          "id": "kaizen_FishBaitInterval",
+                          "label": "Buy Interval",
+                          "min": 5,
+                          "max": 600,
+                          "def": 60,
+                          "suffix": "s"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Auto Craft",
+              "icon": "Hammer",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_CraftType",
+                  "label": "Craft Type",
+                  "values": [
+                    "Weapons",
+                    "Relics",
+                    "Binding Vows"
+                  ],
+                  "def": "Weapons"
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_CraftItem",
+                  "label": "Item",
+                  "values": [
+                    "Loading..."
+                  ],
+                  "def": "Loading..."
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_CraftMaterials",
+                  "label": "Materials",
+                  "values": [
+                    "Pick an item"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "button",
+                  "label": "Craft"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Settings",
+          "left": [
+            {
+              "title": "Farm Settings",
+              "icon": "Settings2",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_FarmMethod",
+                  "label": "Farm Method",
+                  "values": [
+                    "Behind",
+                    "Above",
+                    "Under"
+                  ],
+                  "def": "Behind"
+                },
+                {
+                  "t": "slider",
+                  "id": "kaizen_FarmDistance",
+                  "label": "Farm Distance",
+                  "min": 1,
+                  "max": 25,
+                  "def": 6,
+                  "suffix": "studs"
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_MovementMethod",
+                  "label": "Movement Method",
+                  "values": [
+                    "Tween",
+                    "Teleport"
+                  ],
+                  "def": "Tween"
+                },
+                {
+                  "t": "dep",
+                  "on": "kaizen_MovementMethod",
+                  "equals": "Tween",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "kaizen_TweenSpeed",
+                      "label": "Tween Speed",
+                      "min": 20,
+                      "max": 400,
+                      "def": 120,
+                      "suffix": "studs/s"
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_InstantPrompts",
+                  "label": "Instant Proximity Prompts",
+                  "def": true
+                }
+              ]
+            },
+            {
+              "title": "Combat",
+              "icon": "Sword",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_Weapon",
+                  "label": "Weapon",
+                  "values": [
+                    "Loading..."
+                  ],
+                  "def": "Loading..."
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoEquip",
+                  "label": "Auto Equip Weapon",
+                  "def": true
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoM1",
+                  "label": "Auto M1",
+                  "def": true
+                },
+                {
+                  "t": "slider",
+                  "id": "kaizen_M1Delay",
+                  "label": "M1 Delay",
+                  "min": 0.05,
+                  "max": 1,
+                  "def": 0.15,
+                  "dec": 2,
+                  "suffix": "s"
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoSkills",
+                  "label": "Auto Use Skills",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "kaizen_AutoSkills",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "kaizen_Skills",
+                      "label": "Skills",
+                      "values": [
+                        "Z",
+                        "X",
+                        "C",
+                        "V",
+                        "R"
+                      ],
+                      "multi": true,
+                      "def": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Insta Kill",
+              "icon": "Skull",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "label",
+                  "text": "Land about 15% of the damage yourself first so the kill counts."
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_InstaKill",
+                  "label": "Insta Kill",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "kaizen_InstaKill",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "kaizen_InstaRange",
+                      "label": "Range",
+                      "min": 10,
+                      "max": 200,
+                      "def": 50,
+                      "suffix": "studs"
+                    },
+                    {
+                      "t": "slider",
+                      "id": "kaizen_InstaPercent",
+                      "label": "Health Threshold",
+                      "min": 0,
+                      "max": 100,
+                      "def": 85,
+                      "suffix": "%"
+                    }
+                  ]
+                },
+                {
+                  "t": "label",
+                  "text": "Off"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Halloween",
+      "icon": "Ghost",
+      "pages": [
+        {
+          "name": "Event",
+          "left": [
+            {
+              "title": "Auto Halloween",
+              "icon": "Ghost",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_HalloweenTargets",
+                  "label": "Targets",
+                  "values": [
+                    "Dullahan",
+                    "Pumpkins",
+                    "Aura Enemies",
+                    "Event Enemies"
+                  ],
+                  "multi": true,
+                  "def": [
+                    "Dullahan",
+                    "Pumpkins",
+                    "Aura Enemies",
+                    "Event Enemies"
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoHalloween",
+                  "label": "Auto Halloween",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                },
+                {
+                  "t": "button",
+                  "label": "Go To Halloween Portal"
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Progression Track",
+              "icon": "Trophy",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "kaizen_HalloweenClaimTiers",
+                  "label": "Auto Claim Tiers",
+                  "def": false
+                }
+              ]
+            },
+            {
+              "title": "Event Shop",
+              "icon": "ShoppingBag",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_HalloweenShopItems",
+                  "label": "Items",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "button",
+                  "label": "Buy Once"
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_HalloweenAutoBuy",
+                  "label": "Auto Buy",
+                  "def": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clans",
+      "icon": "Dices",
+      "pages": [
+        {
+          "name": "Clans",
+          "left": [
+            {
+              "title": "Auto Clan Spin",
+              "icon": "Dices",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_ClanCommon",
+                  "label": "Common Clans",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_ClanRare",
+                  "label": "Rare Clans",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_ClanEpic",
+                  "label": "Epic Clans",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_ClanLegendary",
+                  "label": "Legendary Clans",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_ClanMythic",
+                  "label": "Mythic Clans",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoSpin",
+                  "label": "Auto Spin",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            }
+          ],
+          "right": []
+        }
+      ]
+    },
+    {
+      "name": "Teleport",
+      "icon": "MapPin",
+      "pages": [
+        {
+          "name": "Teleport",
+          "left": [
+            {
+              "title": "Quest NPCs",
+              "icon": "Users",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_TpNpc",
+                  "label": "NPC",
+                  "values": [
+                    "None"
+                  ],
+                  "def": "None"
+                },
+                {
+                  "t": "button",
+                  "label": "Teleport To NPC"
+                }
+              ]
+            },
+            {
+              "title": "Mission Boards",
+              "icon": "ClipboardList",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_TpBoard",
+                  "label": "Board",
+                  "values": [
+                    "None"
+                  ],
+                  "def": "None"
+                },
+                {
+                  "t": "button",
+                  "label": "Teleport To Board"
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Raid Zones",
+              "icon": "Swords",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_TpRaid",
+                  "label": "Raid Zone",
+                  "values": [
+                    "None"
+                  ],
+                  "def": "None"
+                },
+                {
+                  "t": "button",
+                  "label": "Teleport To Raid Zone"
+                }
+              ]
+            },
+            {
+              "title": "Enemy Zones",
+              "icon": "Crosshair",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_TpEnemy",
+                  "label": "Enemy Zone",
+                  "values": [
+                    "None"
+                  ],
+                  "def": "None"
+                },
+                {
+                  "t": "button",
+                  "label": "Teleport To Enemy Zone"
+                }
+              ]
+            },
+            {
+              "title": "Coordinates",
+              "icon": "Locate",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "input",
+                  "id": "kaizen_TpCoords",
+                  "label": "X, Y, Z",
+                  "def": "",
+                  "ph": "0, 0, 0"
+                },
+                {
+                  "t": "button",
+                  "label": "Go To Coordinates"
+                },
+                {
+                  "t": "button",
+                  "label": "Copy My Position"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Player",
+      "icon": "PersonStanding",
+      "left": [
+        {
+          "title": "Modifiers",
+          "icon": "SlidersHorizontal",
+          "collapsed": true,
+          "items": [
+            {
+              "t": "toggle",
+              "id": "FlightEnabled",
+              "label": "Fly",
+              "def": false,
+              "key": "Y"
+            },
+            {
+              "t": "dep",
+              "on": "FlightEnabled",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "FlightSpeed",
+                  "label": "Fly Speed",
+                  "min": 30,
+                  "max": 400,
+                  "def": 100
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "JumpPower",
+              "label": "Jump Power",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "JumpPower",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "JumpHeight",
+                  "label": "Jump Height",
+                  "min": 5,
+                  "max": 200,
+                  "def": 7.2,
+                  "dec": 1
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "PU_IgnoreJumpLock",
+              "label": "Ignore Jump Lock",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "PU_BunnyHop",
+              "label": "Bunny Hop",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "InfiniteJump",
+              "label": "Infinite Jump",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "SpeedEnabled",
+              "label": "Speed",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "SpeedEnabled",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "SpeedValue",
+                  "label": "Speed Value",
+                  "min": 16,
+                  "max": 300,
+                  "def": 30
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "ClickTPEnabled",
+              "label": "Click To Teleport",
+              "def": false
+            }
+          ]
+        },
+        {
+          "title": "Combat Extras",
+          "icon": "Swords",
+          "collapsed": true,
+          "items": [
+            {
+              "t": "toggle",
+              "id": "kaizen_Hitbox",
+              "label": "Hitbox Expander",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "kaizen_Hitbox",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "kaizen_HitboxSize",
+                  "label": "Hitbox Size",
+                  "min": 1,
+                  "max": 20,
+                  "def": 5
+                },
+                {
+                  "t": "slider",
+                  "id": "kaizen_HitboxTransparency",
+                  "label": "Hitbox Transparency",
+                  "min": 0,
+                  "max": 1,
+                  "def": 0.9,
+                  "dec": 1
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "kaizen_SpinFling",
+              "label": "Spin Fling",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "kaizen_SpinFling",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "kaizen_SpinSpeed",
+                  "label": "Spin Speed",
+                  "min": 5,
+                  "max": 100,
+                  "def": 25
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "kaizen_Companion",
+              "label": "Companion",
+              "def": false
+            },
+            {
+              "t": "input",
+              "id": "kaizen_CompanionId",
+              "label": "Image Asset Id",
+              "def": "",
+              "ph": "11914981726"
+            }
+          ]
+        }
+      ],
+      "right": [
+        {
+          "title": "Removals",
+          "icon": "Eraser",
+          "collapsed": true,
+          "items": [
+            {
+              "t": "toggle",
+              "id": "PU_AntiVoid",
+              "label": "Anti Void",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "PU_AntiVoid",
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "PU_AntiVoidLower",
+                  "label": "Lower The Void",
+                  "def": true
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "NoclipEnabled",
+              "label": "NoClip",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "RemoveKillBricks",
+              "label": "No Kill Bricks",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "PU_AntiFling",
+              "label": "Anti Fling",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "AntiAFK_Toggle",
+              "label": "Anti-AFK",
+              "def": true
+            },
+            {
+              "t": "toggle",
+              "id": "kaizen_NoStun",
+              "label": "No Stun",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "kaizen_NoRagdoll",
+              "label": "No Ragdoll",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "kaizen_NoSlow",
+              "label": "No Slow",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "kaizen_NoFallDamage",
+              "label": "No Fall Damage",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "kaizen_NoAnimations",
+              "label": "No Animations",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "kaizen_NoGameplayPaused",
+              "label": "No Gameplay Paused",
+              "def": false
+            }
+          ]
+        },
+        {
+          "title": "Utilities",
+          "icon": "Wrench",
+          "collapsed": true,
+          "items": [
+            {
+              "t": "button",
+              "label": "Quick Reset"
+            },
+            {
+              "t": "toggle",
+              "id": "PU_TpOnDeath",
+              "label": "TP Back On Death",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "AutoRejoin",
+              "label": "Auto Rejoin",
+              "def": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Visuals",
+      "icon": "ScanEye",
+      "pages": [
+        {
+          "name": "ESP",
+          "left": [
+            {
+              "title": "Players",
+              "icon": "ScanFace",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Players_Enable",
+                  "label": "Enable Player ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Players_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "Players_Identity",
+                      "label": "Race & Clan",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Level",
+                      "label": "Level",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Weapon",
+                      "label": "Held Item",
+                      "def": true
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Nearest",
+                      "label": "Closest Player Only",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_ShowMe",
+                      "label": "Include My Character",
+                      "def": false
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "Players_OnlyTarget",
+                      "label": "Only Show This Player",
+                      "values": [
+                        "Everyone"
+                      ],
+                      "def": "Everyone"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Box",
+                      "label": "Box",
+                      "def": true,
+                      "color": "#ff4646"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Players_Box",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Players_BoxOutline",
+                          "label": "Outline",
+                          "def": true
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Players_Box3d",
+                          "label": "3D Box",
+                          "def": false
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Players_BoxFill",
+                          "label": "Fill",
+                          "def": false
+                        },
+                        {
+                          "t": "slider",
+                          "id": "Players_BoxFillAlpha",
+                          "label": "Fill Opacity",
+                          "min": 0,
+                          "max": 100,
+                          "def": 35,
+                          "suffix": "%"
+                        }
+                      ]
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Info",
+                      "label": "Player Details",
+                      "def": true,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Distance",
+                      "label": "Distance",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_HealthBar",
+                      "label": "Health Bar",
+                      "def": true
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_HealthText",
+                      "label": "Health Text",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#ff4646"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Skeleton",
+                      "label": "Skeleton",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#ff4646"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Chams",
+                      "label": "Chams",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Players_Chams",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Players_ChamsVisible",
+                          "label": "Visible-Only",
+                          "def": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Bosses",
+              "icon": "Crown",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Bosses_Enable",
+                  "label": "Enable Boss ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Bosses_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_Box",
+                      "label": "Box",
+                      "def": false,
+                      "color": "#ffaa28"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Bosses_Box",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Bosses_BoxOutline",
+                          "label": "Outline",
+                          "def": true
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Bosses_Box3d",
+                          "label": "3D Box",
+                          "def": false
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Bosses_BoxFill",
+                          "label": "Fill",
+                          "def": false
+                        },
+                        {
+                          "t": "slider",
+                          "id": "Bosses_BoxFillAlpha",
+                          "label": "Fill Opacity",
+                          "min": 0,
+                          "max": 100,
+                          "def": 35,
+                          "suffix": "%"
+                        }
+                      ]
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_Info",
+                      "label": "Details",
+                      "def": false,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_Distance",
+                      "label": "Distance",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_HealthBar",
+                      "label": "Health Bar",
+                      "def": true
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_HealthText",
+                      "label": "Health Text",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#ffaa28"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_Skeleton",
+                      "label": "Skeleton",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#ffaa28"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Bosses_Chams",
+                      "label": "Chams",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Bosses_Chams",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Bosses_ChamsVisible",
+                          "label": "Visible-Only",
+                          "def": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Quest NPCs",
+              "icon": "Users",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "QuestNpcs_Enable",
+                  "label": "Enable Quest NPC ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "QuestNpcs_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "QuestNpcs_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "QuestNpcs_Info",
+                      "label": "Details",
+                      "def": false,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "QuestNpcs_Distance",
+                      "label": "Distance",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "QuestNpcs_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#78ff8c"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "QuestNpcs_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#78ff8c"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Mission Objective",
+              "icon": "Target",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Mission_Enable",
+                  "label": "Enable Mission ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Mission_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "Mission_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mission_Info",
+                      "label": "Details",
+                      "def": false,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mission_Distance",
+                      "label": "Distance",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mission_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#be78ff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mission_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#be78ff"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Network Ownership ESP",
+              "icon": "Network",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "label",
+                  "text": "Your executor has no isnetworkowner, so this cannot run here."
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Radar",
+              "icon": "Radar",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Radar_Enable",
+                  "label": "Enable Radar",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Radar_Enable",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "Radar_Range",
+                      "label": "Range",
+                      "min": 100,
+                      "max": 2000,
+                      "def": 500,
+                      "suffix": "studs"
+                    },
+                    {
+                      "t": "slider",
+                      "id": "Radar_Scale",
+                      "label": "HUD Scale",
+                      "min": 50,
+                      "max": 200,
+                      "def": 100,
+                      "suffix": "%"
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "Radar_Mode",
+                      "label": "Rotation Mode",
+                      "values": [
+                        "Camera",
+                        "North"
+                      ],
+                      "def": "Camera"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Mobs",
+              "icon": "Skull",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Mobs_Enable",
+                  "label": "Enable Mob ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Mobs_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Box",
+                      "label": "Box",
+                      "def": false,
+                      "color": "#ff5a5a"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Mobs_Box",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Mobs_BoxOutline",
+                          "label": "Outline",
+                          "def": true
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Mobs_Box3d",
+                          "label": "3D Box",
+                          "def": false
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Mobs_BoxFill",
+                          "label": "Fill",
+                          "def": false
+                        },
+                        {
+                          "t": "slider",
+                          "id": "Mobs_BoxFillAlpha",
+                          "label": "Fill Opacity",
+                          "min": 0,
+                          "max": 100,
+                          "def": 35,
+                          "suffix": "%"
+                        }
+                      ]
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Info",
+                      "label": "Details",
+                      "def": false,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Distance",
+                      "label": "Distance",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_HealthBar",
+                      "label": "Health Bar",
+                      "def": true
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_HealthText",
+                      "label": "Health Text",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#ff5a5a"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Skeleton",
+                      "label": "Skeleton",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#ff5a5a"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Chams",
+                      "label": "Chams",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Mobs_Chams",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Mobs_ChamsVisible",
+                          "label": "Visible-Only",
+                          "def": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Collectibles",
+              "icon": "Gem",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Collectibles_Enable",
+                  "label": "Enable Collectible ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Collectibles_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "Collectibles_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Collectibles_Info",
+                      "label": "Details",
+                      "def": false,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Collectibles_Distance",
+                      "label": "Distance",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Collectibles_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#50dcff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Collectibles_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#50dcff"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Chests",
+              "icon": "Package",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Chests_Enable",
+                  "label": "Enable Chest ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Chests_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "Chests_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Chests_Info",
+                      "label": "Details",
+                      "def": false,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Chests_Distance",
+                      "label": "Distance",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Chests_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#ffdc5a"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Chests_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#ffdc5a"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Misc",
+          "left": [
+            {
+              "title": "View Settings",
+              "icon": "Focus",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "InfiniteCamera",
+                  "label": "Infinite Zoom",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_ThirdPerson",
+                  "label": "Force Third Person",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "CAM_ThirdPerson",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "CAM_ThirdPersonDist",
+                      "label": "Closest Zoom",
+                      "min": 2,
+                      "max": 40,
+                      "def": 10,
+                      "suffix": "studs"
+                    }
+                  ]
+                },
+                {
+                  "t": "slider",
+                  "id": "CameraFOV",
+                  "label": "Camera FOV",
+                  "min": 40,
+                  "max": 120,
+                  "def": 70
+                },
+                {
+                  "t": "toggle",
+                  "id": "ZOOM_Enable",
+                  "label": "Zoom",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "ZOOM_Enable",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "ZOOM_Strength",
+                      "label": "Zoom Strength",
+                      "min": 1,
+                      "max": 10,
+                      "def": 2,
+                      "dec": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "World Effects",
+              "icon": "SunMoon",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "NoFog",
+                  "label": "No Fog",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "Fullbright",
+                  "label": "Fullbright",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Fullbright",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "Fullbright_Mode",
+                      "label": "Lighting Mode",
+                      "values": [
+                        "Passive",
+                        "Aggressive"
+                      ],
+                      "def": "Aggressive"
+                    },
+                    {
+                      "t": "slider",
+                      "id": "Fullbright_Brightness",
+                      "label": "Brightness",
+                      "min": 0.01,
+                      "max": 5,
+                      "def": 1,
+                      "dec": 3
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "XRay",
+                  "label": "X-Ray",
+                  "def": false
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Free Camera",
+              "icon": "Aperture",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "FreecamEnabled",
+                  "label": "Freecam",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "FreecamEnabled",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "FreecamMode",
+                      "label": "Freecam Type",
+                      "values": [
+                        "Cinematic",
+                        "Functional"
+                      ],
+                      "def": "Cinematic"
+                    },
+                    {
+                      "t": "slider",
+                      "id": "FreecamSensitivity",
+                      "label": "Freecam Sensitivity",
+                      "min": 0.1,
+                      "max": 3,
+                      "def": 1,
+                      "dec": 2
+                    },
+                    {
+                      "t": "slider",
+                      "id": "FreecamSpeed",
+                      "label": "Freecam Move Speed",
+                      "min": 0.1,
+                      "max": 20,
+                      "def": 1,
+                      "dec": 1,
+                      "suffix": "x"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Misc",
+      "icon": "Compass",
+      "pages": [
+        {
+          "name": "Misc",
+          "left": [
+            {
+              "title": "Optimization",
+              "icon": "Gauge",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "PerformanceMode",
+                  "label": "Performance Mode",
+                  "def": false
+                },
+                {
+                  "t": "input",
+                  "id": "UTILS_FPSCap",
+                  "label": "FPS Cap",
+                  "def": "60",
+                  "ph": "Enter target FPS"
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_HideMap",
+                  "label": "Hide Map",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_HideSelf",
+                  "label": "Hide My Character",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_HideOthers",
+                  "label": "Hide Other Players",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_No3D",
+                  "label": "Disable 3D Rendering",
+                  "def": false
+                },
+                {
+                  "t": "dropdown",
+                  "id": "CAM_RenderBackground",
+                  "label": "Render Background",
+                  "values": [
+                    "White",
+                    "Black",
+                    "Dark Grey"
+                  ],
+                  "def": "White"
+                }
+              ]
+            },
+            {
+              "title": "Scene Lighting",
+              "icon": "Palette",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "ENV_Ambient",
+                  "label": "Custom Ambient",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "ENV_Ambient",
+                  "items": [
+                    {
+                      "t": "color",
+                      "id": "ENV_AmbientColor",
+                      "label": "Ambient Color",
+                      "def": "#808080"
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "ENV_TimeLock",
+                  "label": "Custom Time of Day",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "ENV_TimeLock",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "ENV_Time",
+                      "label": "Time of Day",
+                      "min": 0,
+                      "max": 24,
+                      "def": 12,
+                      "dec": 2,
+                      "suffix": "h"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Player View",
+              "icon": "Binoculars",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "SpectateTarget",
+                  "label": "Select Player",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "def": "Loaded in game"
+                },
+                {
+                  "t": "button",
+                  "label": "Refresh Players"
+                },
+                {
+                  "t": "toggle",
+                  "id": "SpectateEnabled",
+                  "label": "Spectate Player",
+                  "def": false
+                }
+              ]
+            },
+            {
+              "title": "Alert",
+              "icon": "BellRing",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "AlertTypes",
+                  "label": "Alerts",
+                  "values": [
+                    "Moderators",
+                    "Boss Defeated",
+                    "Clan Rolled",
+                    "Quest Changed",
+                    "Mission Completed"
+                  ],
+                  "multi": true,
+                  "def": [
+                    "Moderators"
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "AlertEnabled",
+                  "label": "Alert",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "AlertEnabled",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "AlertSound",
+                      "label": "Sound",
+                      "def": true
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "LeaveOnModToggle",
+                      "label": "Leave If Mod Joins",
+                      "def": false
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "SV_StaffAlsoCount",
+                      "label": "Also Count As Staff",
+                      "values": [
+                        "Content Creators",
+                        "Partners",
+                        "Early Access"
+                      ],
+                      "multi": true,
+                      "def": [
+                        "Partners"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Auto Play",
+              "icon": "Play",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_PlayWorld",
+                  "label": "World",
+                  "values": [
+                    "World 1",
+                    "World 2"
+                  ],
+                  "def": "World 1"
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoPlay",
+                  "label": "Auto Play",
+                  "def": false
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Server Travel",
+              "icon": "Route",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "SERVER_Filter",
+                  "label": "Filter",
+                  "values": [
+                    "Lowest Players",
+                    "Lowest Ping",
+                    "Random"
+                  ],
+                  "def": "Lowest Ping"
+                },
+                {
+                  "t": "dropdown",
+                  "id": "SV_Region",
+                  "label": "Region",
+                  "values": [
+                    "Any Region",
+                    "NA-WEST",
+                    "NA-CENTRAL",
+                    "NA-EAST",
+                    "SA",
+                    "EU",
+                    "AF",
+                    "AS",
+                    "OCE"
+                  ],
+                  "def": "Any Region"
+                },
+                {
+                  "t": "slider",
+                  "id": "SERVER_MaxPlayers",
+                  "label": "Max Player Count",
+                  "min": 1,
+                  "max": 50,
+                  "def": 20
+                },
+                {
+                  "t": "slider",
+                  "id": "SERVER_MaxPing",
+                  "label": "Max Ping (ms)",
+                  "min": 1,
+                  "max": 1000,
+                  "def": 200
+                },
+                {
+                  "t": "button",
+                  "label": "Server Hop Once"
+                },
+                {
+                  "t": "button",
+                  "label": "Rejoin"
+                },
+                {
+                  "t": "toggle",
+                  "id": "SERVER_AutoHop",
+                  "label": "Enable Auto Hop",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "SERVER_AutoHop",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "SERVER_AutoHopInterval",
+                      "label": "Auto Hop Interval (s)",
+                      "min": 1,
+                      "max": 600,
+                      "def": 60,
+                      "suffix": "s"
+                    }
+                  ]
+                },
+                {
+                  "t": "button",
+                  "label": "Forget Servers I've Been To"
+                }
+              ]
+            },
+            {
+              "title": "Privacy",
+              "icon": "VenetianMask",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "streamer_mode_toggle",
+                  "label": "Enable Streamer Mode",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "streamer_mode_toggle",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "streamer_mode_options",
+                      "label": "Affects",
+                      "values": [
+                        "Hide Own Name",
+                        "Hide Others Names",
+                        "Hide Own Skin",
+                        "Hide Others Skins"
+                      ],
+                      "multi": true,
+                      "def": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Chat History",
+              "icon": "NotebookPen",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "CL_Enabled",
+                  "label": "Chat Logger",
+                  "def": false
+                }
+              ]
+            },
+            {
+              "title": "QoL",
+              "icon": "Sparkles",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoCombatClash",
+                  "label": "Auto Combat Clash",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "kaizen_AutoCombatClash",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "kaizen_ClashKeyDelay",
+                      "label": "Key Delay",
+                      "min": 0.05,
+                      "max": 0.4,
+                      "def": 0.12,
+                      "dec": 2,
+                      "suffix": "s"
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_AutoDomainClash",
+                  "label": "Auto Domain Clash",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "kaizen_AutoDomainClash",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "kaizen_DomainZone",
+                      "label": "Hit Zone",
+                      "values": [
+                        "Inner Zone",
+                        "Outer Zone"
+                      ],
+                      "def": "Inner Zone"
+                    }
+                  ]
+                },
+                {
+                  "t": "label",
+                  "text": "Off"
+                },
+                {
+                  "t": "divider"
+                },
+                {
+                  "t": "button",
+                  "label": "Redeem All Codes"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Webhook",
+          "left": [
+            {
+              "title": "Discord Webhook",
+              "icon": "Webhook",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "label",
+                  "text": "The webhook is not set up for this build yet."
+                }
+              ]
+            },
+            {
+              "title": "Kaizen Webhook",
+              "icon": "Webhook",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "input",
+                  "id": "kaizen_WebhookUrl",
+                  "label": "Webhook Link",
+                  "def": "",
+                  "ph": "https://discord.com/api/webhooks/..."
+                },
+                {
+                  "t": "toggle",
+                  "id": "kaizen_WebhookEnabled",
+                  "label": "Send Webhooks",
+                  "def": false
+                },
+                {
+                  "t": "dropdown",
+                  "id": "kaizen_WebhookEvents",
+                  "label": "Events",
+                  "values": [
+                    "Raids",
+                    "Expeditions",
+                    "World Bosses",
+                    "Kaitun",
+                    "Clan Rolls"
+                  ],
+                  "multi": true,
+                  "def": [
+                    "Raids",
+                    "Expeditions",
+                    "World Bosses",
+                    "Kaitun",
+                    "Clan Rolls"
+                  ]
+                },
+                {
+                  "t": "button",
+                  "label": "Test Webhook"
+                }
+              ]
+            }
+          ],
+          "right": []
+        }
+      ]
+    },
+    {
+      "name": "UI Settings",
+      "icon": "SlidersHorizontal",
+      "pinned": true,
+      "left": [
+        {
+          "title": "Hub Preferences",
+          "icon": "SlidersHorizontal",
+          "items": [
+            {
+              "t": "toggle",
+              "id": "Menu_AutoShow",
+              "label": "Auto Show UI On Load",
+              "def": true
+            },
+            {
+              "t": "toggle",
+              "id": "Menu_AutoExecute",
+              "label": "Auto Execute",
+              "def": true
+            },
+            {
+              "t": "toggle",
+              "id": "Menu_LogoButton",
+              "label": "Show Logo Button",
+              "def": true
+            },
+            {
+              "t": "toggle",
+              "id": "KeybindMenuOpen",
+              "label": "Open Keybind Menu",
+              "def": false
+            },
+            {
+              "t": "dropdown",
+              "id": "NotificationSide",
+              "label": "Notification Side",
+              "values": [
+                "Left",
+                "Right"
+              ],
+              "def": "Right"
+            },
+            {
+              "t": "dropdown",
+              "id": "DPIDropdown",
+              "label": "DPI Scale",
+              "values": [
+                "50%",
+                "75%",
+                "100%",
+                "125%",
+                "150%",
+                "175%",
+                "200%"
+              ],
+              "def": "100%"
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "button",
+              "label": "Replay Start Guide"
+            },
+            {
+              "t": "input",
+              "id": "MenuKeybind",
+              "label": "Menu bind",
+              "def": "RightShift"
+            },
+            {
+              "t": "button",
+              "label": "Unload"
+            },
+            {
+              "t": "button",
+              "label": "Hard Reset Lucid: REWRITE"
+            }
+          ]
+        },
+        {
+          "title": "Language & Text",
+          "icon": "Globe",
+          "items": [
+            {
+              "t": "label",
+              "text": "Showing English. Click below to pick another language."
+            },
+            {
+              "t": "button",
+              "label": "Change Language"
+            }
+          ]
+        },
+        {
+          "title": "Themes",
+          "icon": "Paintbrush",
+          "items": [
+            {
+              "t": "color",
+              "id": "BackgroundColor",
+              "label": "Background color",
+              "def": "#000000"
+            },
+            {
+              "t": "color",
+              "id": "MainColor",
+              "label": "Main color",
+              "def": "#0e0e0e"
+            },
+            {
+              "t": "color",
+              "id": "AccentColor",
+              "label": "Accent color",
+              "def": "#f0f0f0"
+            },
+            {
+              "t": "color",
+              "id": "OutlineColor",
+              "label": "Outline color",
+              "def": "#2e2e2e"
+            },
+            {
+              "t": "color",
+              "id": "FontColor",
+              "label": "Font color",
+              "def": "#ffffff"
+            },
+            {
+              "t": "label",
+              "text": "Contrast check: n/a"
+            },
+            {
+              "t": "dropdown",
+              "id": "FontFace",
+              "label": "Font Face",
+              "values": [
+                "BuilderSans",
+                "Code",
+                "Fantasy",
+                "Gotham",
+                "Jura",
+                "Roboto",
+                "RobotoMono",
+                "SourceSans"
+              ],
+              "def": "Code"
+            },
+            {
+              "t": "input",
+              "id": "BackgroundImage",
+              "label": "Background Image",
+              "def": ""
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "dropdown",
+              "id": "ThemeManager_ThemeList",
+              "label": "Theme list",
+              "values": [
+                "Default",
+                "BBot",
+                "Fatality",
+                "Jester",
+                "Mint",
+                "Tokyo Night",
+                "Ubuntu",
+                "Quartz",
+                "Nord",
+                "Dracula",
+                "Monokai",
+                "Gruvbox",
+                "Solarized",
+                "Catppuccin",
+                "One Dark",
+                "Cyberpunk",
+                "Oceanic Next",
+                "Material"
+              ],
+              "def": "Default"
+            },
+            {
+              "t": "button",
+              "label": "Set as default"
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "input",
+              "id": "ThemeManager_CustomThemeName",
+              "label": "Custom theme name",
+              "def": ""
+            },
+            {
+              "t": "button",
+              "label": "Create theme"
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "dropdown",
+              "id": "ThemeManager_CustomThemeList",
+              "label": "Custom themes",
+              "values": [
+                "Loaded in game"
+              ],
+              "def": "Loaded in game"
+            },
+            {
+              "t": "button",
+              "label": "Load theme"
+            },
+            {
+              "t": "button",
+              "label": "Overwrite theme"
+            },
+            {
+              "t": "button",
+              "label": "Delete theme"
+            },
+            {
+              "t": "button",
+              "label": "Refresh list"
+            },
+            {
+              "t": "button",
+              "label": "Set as default"
+            },
+            {
+              "t": "button",
+              "label": "Reset default"
+            },
+            {
+              "t": "label",
+              "text": "Current default theme: ..."
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "input",
+              "id": "ThemeManager_ThemeJSON",
+              "label": "Theme JSON",
+              "def": ""
+            },
+            {
+              "t": "button",
+              "label": "Import theme"
+            },
+            {
+              "t": "button",
+              "label": "Export current theme"
+            }
+          ]
+        }
+      ],
+      "right": [
+        {
+          "title": "Configuration",
+          "icon": "FolderCog",
+          "items": [
+            {
+              "t": "input",
+              "id": "SaveManager_ConfigName",
+              "label": "Config name",
+              "def": ""
+            },
+            {
+              "t": "button",
+              "label": "Create config"
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "dropdown",
+              "id": "SaveManager_ConfigList",
+              "label": "Config list",
+              "values": [
+                "Loaded in game"
+              ],
+              "def": "Loaded in game"
+            },
+            {
+              "t": "button",
+              "label": "Load config"
+            },
+            {
+              "t": "button",
+              "label": "Overwrite config"
+            },
+            {
+              "t": "button",
+              "label": "Delete config"
+            },
+            {
+              "t": "button",
+              "label": "Refresh list"
+            },
+            {
+              "t": "button",
+              "label": "Set as autoload"
+            },
+            {
+              "t": "button",
+              "label": "Reset autoload"
+            },
+            {
+              "t": "label",
+              "text": "Current autoload config: ..."
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "input",
+              "id": "SaveManager_JSON",
+              "label": "Config JSON",
+              "def": ""
+            },
+            {
+              "t": "button",
+              "label": "Import config"
+            },
+            {
+              "t": "button",
+              "label": "Export current config"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

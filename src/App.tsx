@@ -4,6 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes, useNavigate, useLocation } from
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Spider } from "@/components/Spider";
 import { supabase } from "@/integrations/supabase/client";
 import Index from "./pages/Index";
 import Scripts from "./pages/Scripts";
@@ -50,6 +51,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      {/* Mounted once above the router so it keeps walking across page changes. */}
+      <Spider />
       <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
         <AuthListener />
         <Routes>

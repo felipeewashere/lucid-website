@@ -74,8 +74,8 @@ void main(){
 
   float th = bayer8(gl_FragCoord.xy);
   float on = step(th, v);
-  // Halloween: witch purple in the shadows, pumpkin orange to hot yellow in the veins.
-  vec3 fg = mix(vec3(0.42, 0.10, 0.62), vec3(1.0, 0.45, 0.04), smoothstep(0.1, 0.6, v));
+  // Halloween: deep ember in the shadows, pumpkin orange to hot yellow in the veins.
+  vec3 fg = mix(vec3(0.50, 0.12, 0.02), vec3(1.0, 0.45, 0.04), smoothstep(0.1, 0.6, v));
   fg = mix(fg, vec3(1.0, 0.82, 0.35), smoothstep(0.75, 1.0, v));
   vec3 col = on * fg;
   gl_FragColor = vec4(col, 1.0);

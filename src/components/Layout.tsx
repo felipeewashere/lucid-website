@@ -16,7 +16,7 @@ function Bat({ className = "", style }: { className?: string; style?: React.CSSP
   );
 }
 
-/** Slow-flying bats + low purple/orange fog, purely decorative. */
+/** Slow-flying bats + low orange fog, purely decorative. */
 function Haunt() {
   return (
     <div className="pointer-events-none fixed inset-0 z-[1] overflow-hidden" aria-hidden="true">

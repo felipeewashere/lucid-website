@@ -17,13 +17,15 @@ Tab    { "name": "Combat", "icon": "Swords", "pinned": false,
          "pages": [ Page ] }            // pages = the sub tabs shown along the top
        or the shorthand without sub tabs: "left": [Group], "right": [Group]
 Page   { "name": "Main", "left": [Group], "right": [Group] }
-Group  { "title": "Aimbot", "icon": "Crosshair", "items": [Item] }
+Group  { "title": "Aimbot", "icon": "Crosshair", "collapsed": true, "items": [Item] }
        or a group with its own inner tabs:
        { "title": "Settings", "tabs": [ { "name": "General", "items": [Item] } ] }
 ```
 
 - `icon` is any [lucide](https://lucide.dev/icons) icon name in PascalCase (`Swords`, `Crosshair`, `Eye`, `Settings`). Unknown names fall back to `Layers`.
 - `pinned: true` puts the tab at the bottom of the sidebar (use for Settings / Config).
+- `collapsed: true` starts the group minimised, like the hub does in game: every group except the Credits and UI Settings tabs
+  (a search that matches opens it). Groups with inner `tabs` are never minimised.
 - Every control with an `id` needs a **unique** `id`.
 
 ## Items (`"t"`)

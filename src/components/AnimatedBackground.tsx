@@ -52,7 +52,7 @@ export function AnimatedBackground() {
       if (mx > 0) {
         const grad = ctx.createRadialGradient(mx, my, 0, mx, my, 220);
         grad.addColorStop(0, "rgba(255, 120, 20, 0.12)");
-        grad.addColorStop(0.4, "rgba(150, 50, 220, 0.06)");
+        grad.addColorStop(0.4, "rgba(220, 80, 20, 0.06)");
         grad.addColorStop(1, "rgba(0,0,0,0)");
         ctx.fillStyle = grad;
         ctx.beginPath();
@@ -86,7 +86,7 @@ export function AnimatedBackground() {
         const glowBoost = dist < 150 ? (1 - dist / 150) * 0.5 : 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.size > 2 ? `rgba(190,90,255,${Math.min(p.opacity + glowBoost, 0.9)})` : `rgba(255,140,40,${Math.min(p.opacity + glowBoost, 0.9)})`;
+        ctx.fillStyle = p.size > 2 ? `rgba(255,255,255,${Math.min(p.opacity + glowBoost, 0.9)})` : `rgba(255,140,40,${Math.min(p.opacity + glowBoost, 0.9)})`;
         ctx.fill();
       }
 
@@ -100,7 +100,7 @@ export function AnimatedBackground() {
             ctx.beginPath();
             ctx.moveTo(ps[i].x, ps[i].y);
             ctx.lineTo(ps[j].x, ps[j].y);
-            ctx.strokeStyle = `rgba(200,110,255,${0.12 * (1 - dist / 130)})`;
+            ctx.strokeStyle = `rgba(255,150,70,${0.12 * (1 - dist / 130)})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }

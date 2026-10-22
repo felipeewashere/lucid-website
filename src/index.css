@@ -4,53 +4,55 @@
 
 @layer base {
   :root {
-    /* Halloween: ink-purple night, pumpkin orange, witch purple */
-    --background: 265 40% 4%;
-    --foreground: 32 40% 94%;
+    /* Halloween: black night, white text, pumpkin orange (no purple) */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 96%;
 
-    --card: 265 32% 7%;
-    --card-foreground: 32 40% 94%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 265 32% 7%;
-    --popover-foreground: 32 40% 94%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 96%;
 
     --primary: 25 100% 55%;
-    --primary-foreground: 265 40% 4%;
+    --primary-foreground: 0 0% 3%;
 
-    --secondary: 268 28% 13%;
-    --secondary-foreground: 32 40% 94%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 268 28% 13%;
-    --muted-foreground: 268 12% 62%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 62%;
 
     --accent: 25 100% 55% / 0.08;
-    --accent-foreground: 32 40% 94%;
+    --accent-foreground: 0 0% 96%;
 
     --destructive: 0 70% 52%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 268 30% 17%;
-    --input: 268 30% 17%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
     --ring: 25 100% 55%;
 
     --radius: 2px;
 
     --pumpkin: 25 100% 55%;
-    --witch: 280 75% 62%;
+    --witch: 16 95% 48%; /* ember orange: the second accent, was purple */
     --slime: 95 70% 52%;
 
-    --sidebar-background: 265 40% 4%;
-    --sidebar-foreground: 32 40% 94%;
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 0 0% 96%;
     --sidebar-primary: 25 100% 55%;
-    --sidebar-primary-foreground: 265 40% 4%;
+    --sidebar-primary-foreground: 0 0% 3%;
     --sidebar-accent: 25 100% 55% / 0.08;
-    --sidebar-accent-foreground: 32 40% 94%;
-    --sidebar-border: 268 30% 17%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 16%;
     --sidebar-ring: 25 100% 55%;
 
     /* Custom tokens */
-    --font-mono: 'Roboto Mono', monospace;
-    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, monospace;
+    --font-sans: 'Geist', 'Inter', sans-serif;
+    /* Headings: wide and heavy, like the hub's own branding. */
+    --font-display: 'Unbounded', 'Geist', sans-serif;
     --hover-glow: 0 0% 100% / 0.1;
     --surface-glass: 0 0% 100% / 0.03;
   }
@@ -66,8 +68,11 @@
     font-family: var(--font-sans);
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-mono);
+  /* Element + class beats the plain .font-mono utility, so every heading gets the display face. */
+  h1, h2, h3, h4, h5, h6,
+  h1.font-mono, h2.font-mono, h3.font-mono, h4.font-mono, h5.font-mono, h6.font-mono {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
   }
 
   ::selection {
@@ -83,7 +88,7 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(268, 30%, 22%);
+    background: hsl(0, 0%, 20%);
     border-radius: 0;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -113,7 +118,7 @@
   }
 
   .text-meta {
-    color: hsl(268, 12%, 62%);
+    color: hsl(0, 0%, 62%);
   }
 
   /* ---------- Halloween kit ---------- */
@@ -122,7 +127,7 @@
   .text-slime { color: hsl(var(--slime)); }
 
   .gradient-fire {
-    background-image: linear-gradient(100deg, #ffb347 0%, #ff6a00 38%, #c026d3 100%);
+    background-image: linear-gradient(100deg, #ffc56b 0%, #ff7a1a 45%, #d9480f 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

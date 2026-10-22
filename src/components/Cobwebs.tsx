@@ -90,7 +90,7 @@ function drawSpider(ctx: CanvasRenderingContext2D, x: number, y: number, t: numb
       ctx.stroke();
     }
   }
-  ctx.fillStyle = "#14091f";
+  ctx.fillStyle = "#0b0b0b";
   ctx.shadowColor = "rgba(255,120,20,0.8)";
   ctx.shadowBlur = 8;
   ctx.beginPath();

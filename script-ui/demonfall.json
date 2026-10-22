@@ -1,0 +1,2575 @@
+{
+  "game": "Demonfall",
+  "tabs": [
+    {
+      "name": "Credits",
+      "icon": "Sparkles",
+      "pages": [
+        {
+          "name": "Credits",
+          "left": [
+            {
+              "title": "About Lucid",
+              "icon": "BadgeInfo",
+              "items": [
+                {
+                  "t": "label",
+                  "text": "Game: Demonfall"
+                },
+                {
+                  "t": "label",
+                  "text": "Build ID __BUILD_ID__"
+                },
+                {
+                  "t": "label",
+                  "text": "Executor: Mock"
+                }
+              ]
+            },
+            {
+              "title": "Community",
+              "icon": "Link2",
+              "items": [
+                {
+                  "t": "button",
+                  "label": "Discord"
+                },
+                {
+                  "t": "button",
+                  "label": "Script Page"
+                },
+                {
+                  "t": "button",
+                  "label": "Youtube"
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Release Notes",
+              "icon": "NotebookTabs",
+              "items": [
+                {
+                  "t": "label",
+                  "text": "+ Rebuilt Demonfall on the Lucid template"
+                },
+                {
+                  "t": "label",
+                  "text": "+ Automation: Farm and Settings sub tabs (mobs, players, trinkets, ores, flowers)"
+                },
+                {
+                  "t": "label",
+                  "text": "+ Auto Grip, abilities and pickups without VirtualInputManager"
+                },
+                {
+                  "t": "label",
+                  "text": "+ Auto Spin Clan, Teleport tab, Aimbot, Mob and Trinket ESP"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Automation",
+      "icon": "Bot",
+      "pages": [
+        {
+          "name": "Farm",
+          "left": [
+            {
+              "title": "Auto Farm",
+              "tabs": [
+                {
+                  "name": "Mobs",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "demonfall_AutoFarmMobs",
+                      "label": "Auto Farm",
+                      "def": false
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_Mobs",
+                      "label": "Select Mob",
+                      "values": [
+                        "Nearest"
+                      ],
+                      "multi": true,
+                      "def": []
+                    },
+                    {
+                      "t": "button",
+                      "label": "Refresh Mob List"
+                    },
+                    {
+                      "t": "label",
+                      "text": "Idle"
+                    }
+                  ]
+                },
+                {
+                  "name": "Players",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "demonfall_AutoFarmPlayers",
+                      "label": "Auto Farm Player",
+                      "def": false
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_FarmPlayers",
+                      "label": "Select Players",
+                      "values": [
+                        "Loaded in game"
+                      ],
+                      "multi": true,
+                      "def": []
+                    },
+                    {
+                      "t": "button",
+                      "label": "Refresh Player List"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Gathering",
+              "tabs": [
+                {
+                  "name": "Trinkets",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "demonfall_AutoFarmTrinkets",
+                      "label": "Auto Farm Trinkets",
+                      "def": false
+                    },
+                    {
+                      "t": "label",
+                      "text": "Idle"
+                    },
+                    {
+                      "t": "label",
+                      "text": "Collected: 0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Ores",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_Ores",
+                      "label": "Select Ores",
+                      "values": [
+                        "Sun Ore",
+                        "Iron Ore"
+                      ],
+                      "multi": true,
+                      "def": []
+                    },
+                    {
+                      "t": "button",
+                      "label": "Refresh Ore List"
+                    },
+                    {
+                      "t": "button",
+                      "label": "TP To Pickaxe"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "demonfall_AutoFarmOres",
+                      "label": "Auto Farm Ores",
+                      "def": false
+                    },
+                    {
+                      "t": "label",
+                      "text": "Idle"
+                    },
+                    {
+                      "t": "label",
+                      "text": "Mined: 0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Flowers",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_Flowers",
+                      "label": "Select Flowers",
+                      "values": [
+                        "Flower 1",
+                        "Flower 2",
+                        "Flower 3"
+                      ],
+                      "multi": true,
+                      "def": []
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "demonfall_AutoFarmFlowers",
+                      "label": "Auto Farm Flowers",
+                      "def": false
+                    },
+                    {
+                      "t": "label",
+                      "text": "Idle"
+                    },
+                    {
+                      "t": "label",
+                      "text": "Collected: 0"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Settings",
+          "left": [
+            {
+              "title": "Farm Settings",
+              "icon": "Settings2",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_FarmMethod",
+                  "label": "Farm Method",
+                  "values": [
+                    "Behind",
+                    "Above",
+                    "Under"
+                  ],
+                  "def": "Behind"
+                },
+                {
+                  "t": "slider",
+                  "id": "demonfall_FarmDistance",
+                  "label": "Farm Distance",
+                  "min": 1,
+                  "max": 20,
+                  "def": 5,
+                  "suffix": "studs"
+                },
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_MovementMethod",
+                  "label": "Movement Method",
+                  "values": [
+                    "Tween",
+                    "Teleport"
+                  ],
+                  "def": "Teleport"
+                },
+                {
+                  "t": "dep",
+                  "on": "demonfall_MovementMethod",
+                  "equals": "Tween",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "demonfall_TweenSpeed",
+                      "label": "Tween Speed",
+                      "min": 10,
+                      "max": 700,
+                      "def": 100,
+                      "suffix": "studs/s"
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_TweenMode",
+                      "label": "Tween Mode",
+                      "values": [
+                        "Normal",
+                        "Safe"
+                      ],
+                      "def": "Normal"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "demonfall_TweenMode",
+                      "equals": "Safe",
+                      "items": [
+                        {
+                          "t": "slider",
+                          "id": "demonfall_SafeModeHeight",
+                          "label": "Safe Mode Height",
+                          "min": 100,
+                          "max": 10000,
+                          "def": 1000,
+                          "suffix": "studs"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_Weapon",
+                  "label": "Select Weapon",
+                  "values": [
+                    "Combat",
+                    "Katana",
+                    "Soryuu",
+                    "Dante",
+                    "Daki",
+                    "Temari",
+                    "BloodSickles"
+                  ],
+                  "def": "Katana"
+                },
+                {
+                  "t": "toggle",
+                  "id": "demonfall_AutoEquipWeapon",
+                  "label": "Auto Equip",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "demonfall_AutoM1",
+                  "label": "Auto M1",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "demonfall_AutoM1",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "demonfall_M1Delay",
+                      "label": "M1 Delay",
+                      "min": 0.05,
+                      "max": 1,
+                      "def": 0.15,
+                      "dec": 2
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "demonfall_AutoCritical",
+                  "label": "Auto Critical",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "demonfall_AutoCritical",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "demonfall_OnlyCritWhenBlocked",
+                      "label": "Only Crit When Blocked",
+                      "def": false
+                    },
+                    {
+                      "t": "slider",
+                      "id": "demonfall_HeavyDelay",
+                      "label": "Critical Delay",
+                      "min": 0.1,
+                      "max": 2,
+                      "def": 0.5,
+                      "dec": 2
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "demonfall_AutoGrip",
+                  "label": "Auto Grip",
+                  "def": false
+                },
+                {
+                  "t": "label",
+                  "text": "Idle"
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Combat Helpers",
+              "icon": "Swords",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "demonfall_AutoUseAbilities",
+                  "label": "Auto Use Abilities",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "demonfall_AutoUseAbilities",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_Abilities",
+                      "label": "Select Abilities",
+                      "values": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                      ],
+                      "multi": true,
+                      "def": []
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "demonfall_AutoBreathe",
+                  "label": "Auto Breathe",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "demonfall_VoidMob",
+                  "label": "Void Mob",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "demonfall_VoidMob",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "demonfall_VoidMobRange",
+                      "label": "Void Range",
+                      "min": 10,
+                      "max": 1000,
+                      "def": 100
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Survival",
+              "icon": "HeartPulse",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "demonfall_AutoHunger",
+                  "label": "Auto Hunger",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "demonfall_AutoHunger",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "demonfall_HungerThreshold",
+                      "label": "Hunger Threshold",
+                      "min": 1,
+                      "max": 100,
+                      "def": 90,
+                      "suffix": "%"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Teleport",
+      "icon": "MapPin",
+      "pages": [
+        {
+          "name": "Teleport",
+          "left": [
+            {
+              "title": "Zones",
+              "icon": "Map",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_TpZone",
+                  "label": "Zone",
+                  "values": [
+                    "None"
+                  ],
+                  "def": "None"
+                },
+                {
+                  "t": "button",
+                  "label": "Refresh List"
+                },
+                {
+                  "t": "button",
+                  "label": "Teleport"
+                }
+              ]
+            },
+            {
+              "title": "Trinkets",
+              "icon": "Gem",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_TpTrinket",
+                  "label": "Trinket",
+                  "values": [
+                    "None"
+                  ],
+                  "def": "None"
+                },
+                {
+                  "t": "button",
+                  "label": "Refresh List"
+                },
+                {
+                  "t": "button",
+                  "label": "Teleport"
+                }
+              ]
+            },
+            {
+              "title": "Coordinates",
+              "icon": "Crosshair",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "input",
+                  "id": "demonfall_Coordinates",
+                  "label": "Coordinates",
+                  "def": "",
+                  "ph": "X, Y, Z"
+                },
+                {
+                  "t": "button",
+                  "label": "Tween To"
+                },
+                {
+                  "t": "button",
+                  "label": "Copy Position"
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "NPCs",
+              "icon": "Users",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_TpNpc",
+                  "label": "NPC",
+                  "values": [
+                    "Barry",
+                    "Peaker",
+                    "Merchant",
+                    "Soup Boy",
+                    "Grimm",
+                    "Okuyia Tavern",
+                    "Esnor",
+                    "Joro",
+                    "Ronoa",
+                    "Ichiru",
+                    "Freddie",
+                    "Guto",
+                    "Merchant [2]",
+                    "Hayakawa Tavern",
+                    "Black Merchant",
+                    "Poker",
+                    "Soup Man",
+                    "Hayaka",
+                    "Garry",
+                    "Miner",
+                    "Kalil",
+                    "Exam",
+                    "Exam [2]",
+                    "Makio",
+                    "Inosuke",
+                    "Shinazugawa",
+                    "Kamakura Tavern",
+                    "Tronld",
+                    "Margaret",
+                    "Manow",
+                    "Hadam",
+                    "Kitomara",
+                    "Ubuyashiki",
+                    "Bob",
+                    "Corps Tavern",
+                    "Shinobu",
+                    "Marrone",
+                    "Usso",
+                    "Urokodaki",
+                    "Tanjiro",
+                    "Hinatsuru",
+                    "Iguro",
+                    "Mitsuri",
+                    "Tokito",
+                    "Shoga",
+                    "Mai",
+                    "Polnareff",
+                    "Romeo",
+                    "Ney",
+                    "Murata",
+                    "Jarb",
+                    "Gyoumei",
+                    "Kaito",
+                    "Jako",
+                    "John",
+                    "Soup Corps",
+                    "Tsuyuri",
+                    "Uzui",
+                    "Swag Corp",
+                    "Suma",
+                    "Akaza",
+                    "Uncle Kohon"
+                  ],
+                  "def": "Barry"
+                },
+                {
+                  "t": "button",
+                  "label": "Refresh List"
+                },
+                {
+                  "t": "button",
+                  "label": "Teleport"
+                }
+              ]
+            },
+            {
+              "title": "Trainers",
+              "icon": "Dumbbell",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_TpTrainer",
+                  "label": "Trainer",
+                  "values": [
+                    "Flower Breathing",
+                    "Flame Breathing",
+                    "Insect Breathing",
+                    "Love Breathing",
+                    "Mist Breathing",
+                    "Moon Breathing",
+                    "Snake Breathing",
+                    "Sound Breathing",
+                    "Stone Breathing",
+                    "Sun Breathing",
+                    "Thunder Breathing",
+                    "Water Breathing",
+                    "Wind Breathing",
+                    "Beast Breathing"
+                  ],
+                  "def": "Flower Breathing"
+                },
+                {
+                  "t": "button",
+                  "label": "Refresh List"
+                },
+                {
+                  "t": "button",
+                  "label": "Teleport"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clans",
+      "icon": "Users",
+      "pages": [
+        {
+          "name": "Clans",
+          "left": [
+            {
+              "title": "Auto Spin Clan",
+              "icon": "Dices",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_Clan0_5",
+                  "label": "0.5% Desired Clans",
+                  "values": [
+                    "Kamado"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_Clan1",
+                  "label": "1% Desired Clans",
+                  "values": [
+                    "Tomioka",
+                    "Himejima",
+                    "Rengoku",
+                    "Tokito",
+                    "Shinazugawa"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_Clan2",
+                  "label": "2% Desired Clans",
+                  "values": [
+                    "Agatsuma",
+                    "Hashibira",
+                    "Ubuyashiki",
+                    "Kanroji",
+                    "Iguro",
+                    "Kocho",
+                    "Haganezuka"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_Clan8_5",
+                  "label": "8.5% Desired Clans",
+                  "values": [
+                    "Uzui",
+                    "Urokodaki",
+                    "Kuwajima",
+                    "Tsuyuri",
+                    "Kanzaki",
+                    "Nakahara",
+                    "Terauchi",
+                    "Takada",
+                    "Kanamori"
+                  ],
+                  "multi": true,
+                  "def": []
+                },
+                {
+                  "t": "toggle",
+                  "id": "demonfall_AutoSpinClan",
+                  "label": "Auto Spin Clan",
+                  "def": false
+                }
+              ]
+            }
+          ],
+          "right": []
+        }
+      ]
+    },
+    {
+      "name": "Player",
+      "icon": "PersonStanding",
+      "left": [
+        {
+          "title": "Modifiers",
+          "icon": "SlidersHorizontal",
+          "collapsed": true,
+          "items": [
+            {
+              "t": "toggle",
+              "id": "FlightEnabled",
+              "label": "Fly",
+              "def": false,
+              "key": "Y"
+            },
+            {
+              "t": "dep",
+              "on": "FlightEnabled",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "FlightSpeed",
+                  "label": "Fly Speed",
+                  "min": 30,
+                  "max": 400,
+                  "def": 100
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "JumpPower",
+              "label": "Jump Power",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "JumpPower",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "JumpHeight",
+                  "label": "Jump Height",
+                  "min": 5,
+                  "max": 200,
+                  "def": 7.2,
+                  "dec": 1
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "PU_IgnoreJumpLock",
+              "label": "Ignore Jump Lock",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "PU_BunnyHop",
+              "label": "Bunny Hop",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "InfiniteJump",
+              "label": "Infinite Jump",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "SpeedEnabled",
+              "label": "Speed",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "SpeedEnabled",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "SpeedValue",
+                  "label": "Speed Value",
+                  "min": 16,
+                  "max": 300,
+                  "def": 30
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "ClickTPEnabled",
+              "label": "Click To Teleport",
+              "def": false
+            }
+          ]
+        },
+        {
+          "title": "Combat Extras",
+          "icon": "Swords",
+          "collapsed": true,
+          "items": [
+            {
+              "t": "toggle",
+              "id": "demonfall_Hitbox",
+              "label": "Hitbox Expander",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "demonfall_Hitbox",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "demonfall_HitboxSize",
+                  "label": "Hitbox Size",
+                  "min": 1,
+                  "max": 20,
+                  "def": 5
+                },
+                {
+                  "t": "slider",
+                  "id": "demonfall_HitboxTransparency",
+                  "label": "Hitbox Transparency",
+                  "min": 0,
+                  "max": 1,
+                  "def": 0.9,
+                  "dec": 1
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_SpinFling",
+              "label": "Spin Fling",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "demonfall_SpinFling",
+              "items": [
+                {
+                  "t": "slider",
+                  "id": "demonfall_SpinSpeed",
+                  "label": "Spin Speed",
+                  "min": 5,
+                  "max": 100,
+                  "def": 25
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_AttachNearby",
+              "label": "Attach To Nearby Players",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_AttachSelected",
+              "label": "Attach To Selected Player",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "demonfall_AttachNearby",
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "demonfall_AttachTarget",
+                  "label": "Target Player",
+                  "values": [
+                    "Player1",
+                    "Player2"
+                  ],
+                  "def": "Player1"
+                },
+                {
+                  "t": "slider",
+                  "id": "demonfall_AttachRange",
+                  "label": "Range",
+                  "min": 0,
+                  "max": 10000,
+                  "def": 1000
+                },
+                {
+                  "t": "slider",
+                  "id": "demonfall_AttachDistance",
+                  "label": "Distance",
+                  "min": -50,
+                  "max": 50,
+                  "def": 0
+                },
+                {
+                  "t": "slider",
+                  "id": "demonfall_AttachHeight",
+                  "label": "Height",
+                  "min": -50,
+                  "max": 50,
+                  "def": 0
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_Companion",
+              "label": "Companion",
+              "def": false
+            },
+            {
+              "t": "input",
+              "id": "demonfall_CompanionId",
+              "label": "Image Asset Id",
+              "def": "",
+              "ph": "11914981726"
+            }
+          ]
+        }
+      ],
+      "right": [
+        {
+          "title": "Removals",
+          "icon": "Eraser",
+          "collapsed": true,
+          "items": [
+            {
+              "t": "toggle",
+              "id": "PU_AntiVoid",
+              "label": "Anti Void",
+              "def": false
+            },
+            {
+              "t": "dep",
+              "on": "PU_AntiVoid",
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "PU_AntiVoidLower",
+                  "label": "Lower The Void",
+                  "def": true
+                }
+              ]
+            },
+            {
+              "t": "toggle",
+              "id": "NoclipEnabled",
+              "label": "NoClip",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "RemoveKillBricks",
+              "label": "No Kill Bricks",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "PU_AntiFling",
+              "label": "Anti Fling",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "AntiAFK_Toggle",
+              "label": "Anti-AFK",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_NoRagdoll",
+              "label": "No Ragdoll",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_NoStun",
+              "label": "No Stun",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_NoSlow",
+              "label": "No Slow",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_NoCombat",
+              "label": "No Combat",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_NoFallDamage",
+              "label": "No Fall Damage",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_NoGameplayPaused",
+              "label": "No Gameplay Paused",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "demonfall_NoAnimations",
+              "label": "No Animations",
+              "def": false
+            }
+          ]
+        },
+        {
+          "title": "Utilities",
+          "icon": "Wrench",
+          "collapsed": true,
+          "items": [
+            {
+              "t": "button",
+              "label": "Quick Reset"
+            },
+            {
+              "t": "toggle",
+              "id": "PU_TpOnDeath",
+              "label": "TP Back On Death",
+              "def": false
+            },
+            {
+              "t": "toggle",
+              "id": "AutoRejoin",
+              "label": "Auto Rejoin",
+              "def": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Visuals",
+      "icon": "ScanEye",
+      "pages": [
+        {
+          "name": "ESP",
+          "left": [
+            {
+              "title": "Players",
+              "icon": "ScanFace",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Players_Enable",
+                  "label": "Enable Player ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Players_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "Players_Identity",
+                      "label": "Race & Clan",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Level",
+                      "label": "Level",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Weapon",
+                      "label": "Held Item",
+                      "def": true
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Nearest",
+                      "label": "Closest Player Only",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_ShowMe",
+                      "label": "Include My Character",
+                      "def": false
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "Players_OnlyTarget",
+                      "label": "Only Show This Player",
+                      "values": [
+                        "Everyone"
+                      ],
+                      "def": "Everyone"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Box",
+                      "label": "Box",
+                      "def": true,
+                      "color": "#ff4646"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Players_Box",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Players_BoxOutline",
+                          "label": "Outline",
+                          "def": true
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Players_Box3d",
+                          "label": "3D Box",
+                          "def": false
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Players_BoxFill",
+                          "label": "Fill",
+                          "def": false
+                        },
+                        {
+                          "t": "slider",
+                          "id": "Players_BoxFillAlpha",
+                          "label": "Fill Opacity",
+                          "min": 0,
+                          "max": 100,
+                          "def": 35,
+                          "suffix": "%"
+                        }
+                      ]
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Info",
+                      "label": "Player Details",
+                      "def": true,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Distance",
+                      "label": "Distance",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_HealthBar",
+                      "label": "Health Bar",
+                      "def": true
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_HealthText",
+                      "label": "Health Text",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#ff4646"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Skeleton",
+                      "label": "Skeleton",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#ff4646"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Players_Chams",
+                      "label": "Chams",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Players_Chams",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Players_ChamsVisible",
+                          "label": "Visible-Only",
+                          "def": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Trinkets",
+              "icon": "Gem",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Trinkets_Enable",
+                  "label": "Enable Trinket ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Trinkets_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "Trinkets_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Trinkets_Info",
+                      "label": "Details",
+                      "def": false,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Trinkets_Distance",
+                      "label": "Distance",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Trinkets_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#ffd700"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Trinkets_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#ffd700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Network Ownership ESP",
+              "icon": "Network",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "label",
+                  "text": "Your executor has no isnetworkowner, so this cannot run here."
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Radar",
+              "icon": "Radar",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Radar_Enable",
+                  "label": "Enable Radar",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Radar_Enable",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "Radar_Range",
+                      "label": "Range",
+                      "min": 100,
+                      "max": 2000,
+                      "def": 500,
+                      "suffix": "studs"
+                    },
+                    {
+                      "t": "slider",
+                      "id": "Radar_Scale",
+                      "label": "HUD Scale",
+                      "min": 50,
+                      "max": 200,
+                      "def": 100,
+                      "suffix": "%"
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "Radar_Mode",
+                      "label": "Rotation Mode",
+                      "values": [
+                        "Camera",
+                        "North"
+                      ],
+                      "def": "Camera"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Mobs",
+              "icon": "Skull",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "Mobs_Enable",
+                  "label": "Enable Mob ESP",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Mobs_Enable",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Box",
+                      "label": "Box",
+                      "def": false,
+                      "color": "#ff5555"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Mobs_Box",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Mobs_BoxOutline",
+                          "label": "Outline",
+                          "def": true
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Mobs_Box3d",
+                          "label": "3D Box",
+                          "def": false
+                        },
+                        {
+                          "t": "toggle",
+                          "id": "Mobs_BoxFill",
+                          "label": "Fill",
+                          "def": false
+                        },
+                        {
+                          "t": "slider",
+                          "id": "Mobs_BoxFillAlpha",
+                          "label": "Fill Opacity",
+                          "min": 0,
+                          "max": 100,
+                          "def": 35,
+                          "suffix": "%"
+                        }
+                      ]
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Name",
+                      "label": "Name",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Info",
+                      "label": "Details",
+                      "def": false,
+                      "color": "#dcdcdc"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Distance",
+                      "label": "Distance",
+                      "def": true,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_HealthBar",
+                      "label": "Health Bar",
+                      "def": true
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_HealthText",
+                      "label": "Health Text",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Tracer",
+                      "label": "Tracer",
+                      "def": false,
+                      "color": "#ff5555"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Skeleton",
+                      "label": "Skeleton",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Arrow",
+                      "label": "Off-Screen Arrow",
+                      "def": false,
+                      "color": "#ff5555"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "Mobs_Chams",
+                      "label": "Chams",
+                      "def": false,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "t": "dep",
+                      "on": "Mobs_Chams",
+                      "items": [
+                        {
+                          "t": "toggle",
+                          "id": "Mobs_ChamsVisible",
+                          "label": "Visible-Only",
+                          "def": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Misc",
+          "left": [
+            {
+              "title": "View Settings",
+              "icon": "Focus",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "InfiniteCamera",
+                  "label": "Infinite Zoom",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_ThirdPerson",
+                  "label": "Force Third Person",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "CAM_ThirdPerson",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "CAM_ThirdPersonDist",
+                      "label": "Closest Zoom",
+                      "min": 2,
+                      "max": 40,
+                      "def": 10,
+                      "suffix": "studs"
+                    }
+                  ]
+                },
+                {
+                  "t": "slider",
+                  "id": "CameraFOV",
+                  "label": "Camera FOV",
+                  "min": 40,
+                  "max": 120,
+                  "def": 70
+                },
+                {
+                  "t": "toggle",
+                  "id": "ZOOM_Enable",
+                  "label": "Zoom",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "ZOOM_Enable",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "ZOOM_Strength",
+                      "label": "Zoom Strength",
+                      "min": 1,
+                      "max": 10,
+                      "def": 2,
+                      "dec": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "World Effects",
+              "icon": "SunMoon",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "NoFog",
+                  "label": "No Fog",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "Fullbright",
+                  "label": "Fullbright",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "Fullbright",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "Fullbright_Mode",
+                      "label": "Lighting Mode",
+                      "values": [
+                        "Passive",
+                        "Aggressive"
+                      ],
+                      "def": "Aggressive"
+                    },
+                    {
+                      "t": "slider",
+                      "id": "Fullbright_Brightness",
+                      "label": "Brightness",
+                      "min": 0.01,
+                      "max": 5,
+                      "def": 1,
+                      "dec": 3
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "XRay",
+                  "label": "X-Ray",
+                  "def": false
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Free Camera",
+              "icon": "Aperture",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "FreecamEnabled",
+                  "label": "Freecam",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "FreecamEnabled",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "FreecamMode",
+                      "label": "Freecam Type",
+                      "values": [
+                        "Cinematic",
+                        "Functional"
+                      ],
+                      "def": "Cinematic"
+                    },
+                    {
+                      "t": "slider",
+                      "id": "FreecamSensitivity",
+                      "label": "Freecam Sensitivity",
+                      "min": 0.1,
+                      "max": 3,
+                      "def": 1,
+                      "dec": 2
+                    },
+                    {
+                      "t": "slider",
+                      "id": "FreecamSpeed",
+                      "label": "Freecam Move Speed",
+                      "min": 0.1,
+                      "max": 20,
+                      "def": 1,
+                      "dec": 1,
+                      "suffix": "x"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Aimbot",
+      "icon": "Swords",
+      "pages": [
+        {
+          "name": "Aimbot",
+          "left": [
+            {
+              "title": "Player Aimbot",
+              "icon": "Crosshair",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "demonfall_Aimbot",
+                  "label": "Enable Aimbot",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "demonfall_Aimbot",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_AimbotMode",
+                      "label": "Aimbot Mode",
+                      "values": [
+                        "Toggle",
+                        "Hold",
+                        "Always"
+                      ],
+                      "def": "Toggle"
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_AimbotMethod",
+                      "label": "Aimbot Method",
+                      "values": [
+                        "Camera",
+                        "mousemoverel"
+                      ],
+                      "def": "Camera"
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_AimPart",
+                      "label": "Aim Part",
+                      "values": [
+                        "Head",
+                        "Torso",
+                        "Random"
+                      ],
+                      "def": "Head"
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "demonfall_AimbotKey",
+                      "label": "Aim Key",
+                      "values": [
+                        "Right Click",
+                        "Left Click",
+                        "E",
+                        "Q",
+                        "F",
+                        "X",
+                        "Z"
+                      ],
+                      "def": "Right Click"
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "demonfall_AimbotVis",
+                      "label": "Visible Only",
+                      "def": false
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "demonfall_AimbotTeamCheck",
+                      "label": "Team Check",
+                      "def": false
+                    },
+                    {
+                      "t": "slider",
+                      "id": "demonfall_AimbotSens",
+                      "label": "Sensitivity",
+                      "min": 0.1,
+                      "max": 5,
+                      "def": 1,
+                      "dec": 2
+                    },
+                    {
+                      "t": "slider",
+                      "id": "demonfall_AimbotXOff",
+                      "label": "X Offset",
+                      "min": -300,
+                      "max": 300,
+                      "def": 0
+                    },
+                    {
+                      "t": "slider",
+                      "id": "demonfall_AimbotYOff",
+                      "label": "Y Offset",
+                      "min": -300,
+                      "max": 300,
+                      "def": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "FOV Circle",
+              "icon": "CircleDot",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "demonfall_ShowFOV",
+                  "label": "Show FOV Circle",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "demonfall_ShowFOV",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "demonfall_AimbotFOV",
+                      "label": "FOV Size",
+                      "min": 1,
+                      "max": 360,
+                      "def": 45
+                    },
+                    {
+                      "t": "color",
+                      "id": "demonfall_FOVColor",
+                      "label": "FOV Color",
+                      "def": "#ffffff"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Misc",
+      "icon": "Compass",
+      "pages": [
+        {
+          "name": "Misc",
+          "left": [
+            {
+              "title": "Optimization",
+              "icon": "Gauge",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "PerformanceMode",
+                  "label": "Performance Mode",
+                  "def": false
+                },
+                {
+                  "t": "input",
+                  "id": "UTILS_FPSCap",
+                  "label": "FPS Cap",
+                  "def": "60",
+                  "ph": "Enter target FPS"
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_HideMap",
+                  "label": "Hide Map",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_HideSelf",
+                  "label": "Hide My Character",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_HideOthers",
+                  "label": "Hide Other Players",
+                  "def": false
+                },
+                {
+                  "t": "toggle",
+                  "id": "CAM_No3D",
+                  "label": "Disable 3D Rendering",
+                  "def": false
+                },
+                {
+                  "t": "dropdown",
+                  "id": "CAM_RenderBackground",
+                  "label": "Render Background",
+                  "values": [
+                    "White",
+                    "Black",
+                    "Dark Grey"
+                  ],
+                  "def": "White"
+                }
+              ]
+            },
+            {
+              "title": "Scene Lighting",
+              "icon": "Palette",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "ENV_Ambient",
+                  "label": "Custom Ambient",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "ENV_Ambient",
+                  "items": [
+                    {
+                      "t": "color",
+                      "id": "ENV_AmbientColor",
+                      "label": "Ambient Color",
+                      "def": "#808080"
+                    }
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "ENV_TimeLock",
+                  "label": "Custom Time of Day",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "ENV_TimeLock",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "ENV_Time",
+                      "label": "Time of Day",
+                      "min": 0,
+                      "max": 24,
+                      "def": 12,
+                      "dec": 2,
+                      "suffix": "h"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Player View",
+              "icon": "Binoculars",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "SpectateTarget",
+                  "label": "Select Player",
+                  "values": [
+                    "Loaded in game"
+                  ],
+                  "def": "Loaded in game"
+                },
+                {
+                  "t": "button",
+                  "label": "Refresh Players"
+                },
+                {
+                  "t": "toggle",
+                  "id": "SpectateEnabled",
+                  "label": "Spectate Player",
+                  "def": false
+                }
+              ]
+            },
+            {
+              "title": "Alert",
+              "icon": "BellRing",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "AlertTypes",
+                  "label": "Alerts",
+                  "values": [
+                    "Moderators",
+                    "Clan Found",
+                    "Nearby Player"
+                  ],
+                  "multi": true,
+                  "def": [
+                    "Moderators"
+                  ]
+                },
+                {
+                  "t": "toggle",
+                  "id": "AlertEnabled",
+                  "label": "Alert",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "AlertEnabled",
+                  "items": [
+                    {
+                      "t": "toggle",
+                      "id": "AlertSound",
+                      "label": "Sound",
+                      "def": true
+                    },
+                    {
+                      "t": "toggle",
+                      "id": "LeaveOnModToggle",
+                      "label": "Leave If Mod Joins",
+                      "def": false
+                    },
+                    {
+                      "t": "dropdown",
+                      "id": "SV_StaffAlsoCount",
+                      "label": "Also Count As Staff",
+                      "values": [
+                        "Content Creators",
+                        "Partners",
+                        "Early Access"
+                      ],
+                      "multi": true,
+                      "def": [
+                        "Partners"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Server Travel",
+              "icon": "Route",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "dropdown",
+                  "id": "SERVER_Filter",
+                  "label": "Filter",
+                  "values": [
+                    "Lowest Players",
+                    "Lowest Ping",
+                    "Random"
+                  ],
+                  "def": "Lowest Ping"
+                },
+                {
+                  "t": "dropdown",
+                  "id": "SV_Region",
+                  "label": "Region",
+                  "values": [
+                    "Any Region",
+                    "NA-WEST",
+                    "NA-CENTRAL",
+                    "NA-EAST",
+                    "SA",
+                    "EU",
+                    "AF",
+                    "AS",
+                    "OCE"
+                  ],
+                  "def": "Any Region"
+                },
+                {
+                  "t": "slider",
+                  "id": "SERVER_MaxPlayers",
+                  "label": "Max Player Count",
+                  "min": 1,
+                  "max": 50,
+                  "def": 20
+                },
+                {
+                  "t": "slider",
+                  "id": "SERVER_MaxPing",
+                  "label": "Max Ping (ms)",
+                  "min": 1,
+                  "max": 1000,
+                  "def": 200
+                },
+                {
+                  "t": "button",
+                  "label": "Server Hop Once"
+                },
+                {
+                  "t": "button",
+                  "label": "Rejoin"
+                },
+                {
+                  "t": "toggle",
+                  "id": "SERVER_AutoHop",
+                  "label": "Enable Auto Hop",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "SERVER_AutoHop",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "SERVER_AutoHopInterval",
+                      "label": "Auto Hop Interval (s)",
+                      "min": 1,
+                      "max": 600,
+                      "def": 60,
+                      "suffix": "s"
+                    }
+                  ]
+                },
+                {
+                  "t": "button",
+                  "label": "Forget Servers I've Been To"
+                }
+              ]
+            },
+            {
+              "title": "Privacy",
+              "icon": "VenetianMask",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "streamer_mode_toggle",
+                  "label": "Enable Streamer Mode",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "streamer_mode_toggle",
+                  "items": [
+                    {
+                      "t": "dropdown",
+                      "id": "streamer_mode_options",
+                      "label": "Affects",
+                      "values": [
+                        "Hide Own Name",
+                        "Hide Others Names",
+                        "Hide Own Skin",
+                        "Hide Others Skins"
+                      ],
+                      "multi": true,
+                      "def": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Chat History",
+              "icon": "NotebookPen",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "CL_Enabled",
+                  "label": "Chat Logger",
+                  "def": false
+                }
+              ]
+            },
+            {
+              "title": "Nearby Players",
+              "icon": "Radar",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "toggle",
+                  "id": "demonfall_NearbyNotifier",
+                  "label": "Nearby Player Notifier",
+                  "def": false
+                },
+                {
+                  "t": "dep",
+                  "on": "demonfall_NearbyNotifier",
+                  "items": [
+                    {
+                      "t": "slider",
+                      "id": "demonfall_NearbyRange",
+                      "label": "Notifier Range",
+                      "min": 50,
+                      "max": 5000,
+                      "def": 500
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Webhook",
+          "left": [
+            {
+              "title": "Discord Webhook",
+              "icon": "Webhook",
+              "collapsed": true,
+              "items": [
+                {
+                  "t": "label",
+                  "text": "The webhook is not set up for this build yet."
+                }
+              ]
+            }
+          ],
+          "right": []
+        }
+      ]
+    },
+    {
+      "name": "UI Settings",
+      "icon": "SlidersHorizontal",
+      "pinned": true,
+      "left": [
+        {
+          "title": "Hub Preferences",
+          "icon": "SlidersHorizontal",
+          "items": [
+            {
+              "t": "toggle",
+              "id": "Menu_AutoShow",
+              "label": "Auto Show UI On Load",
+              "def": true
+            },
+            {
+              "t": "toggle",
+              "id": "Menu_AutoExecute",
+              "label": "Auto Execute",
+              "def": true
+            },
+            {
+              "t": "toggle",
+              "id": "Menu_LogoButton",
+              "label": "Show Logo Button",
+              "def": true
+            },
+            {
+              "t": "toggle",
+              "id": "KeybindMenuOpen",
+              "label": "Open Keybind Menu",
+              "def": false
+            },
+            {
+              "t": "dropdown",
+              "id": "NotificationSide",
+              "label": "Notification Side",
+              "values": [
+                "Left",
+                "Right"
+              ],
+              "def": "Right"
+            },
+            {
+              "t": "dropdown",
+              "id": "DPIDropdown",
+              "label": "DPI Scale",
+              "values": [
+                "50%",
+                "75%",
+                "100%",
+                "125%",
+                "150%",
+                "175%",
+                "200%"
+              ],
+              "def": "100%"
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "button",
+              "label": "Replay Start Guide"
+            },
+            {
+              "t": "input",
+              "id": "MenuKeybind",
+              "label": "Menu bind",
+              "def": "RightShift"
+            },
+            {
+              "t": "button",
+              "label": "Unload"
+            },
+            {
+              "t": "button",
+              "label": "Hard Reset Lucid: REWRITE"
+            }
+          ]
+        },
+        {
+          "title": "Language & Text",
+          "icon": "Globe",
+          "items": [
+            {
+              "t": "label",
+              "text": "Showing English. Click below to pick another language."
+            },
+            {
+              "t": "button",
+              "label": "Change Language"
+            }
+          ]
+        },
+        {
+          "title": "Themes",
+          "icon": "Paintbrush",
+          "items": [
+            {
+              "t": "color",
+              "id": "BackgroundColor",
+              "label": "Background color",
+              "def": "#000000"
+            },
+            {
+              "t": "color",
+              "id": "MainColor",
+              "label": "Main color",
+              "def": "#0e0e0e"
+            },
+            {
+              "t": "color",
+              "id": "AccentColor",
+              "label": "Accent color",
+              "def": "#f0f0f0"
+            },
+            {
+              "t": "color",
+              "id": "OutlineColor",
+              "label": "Outline color",
+              "def": "#2e2e2e"
+            },
+            {
+              "t": "color",
+              "id": "FontColor",
+              "label": "Font color",
+              "def": "#ffffff"
+            },
+            {
+              "t": "label",
+              "text": "Contrast check: n/a"
+            },
+            {
+              "t": "dropdown",
+              "id": "FontFace",
+              "label": "Font Face",
+              "values": [
+                "BuilderSans",
+                "Code",
+                "Fantasy",
+                "Gotham",
+                "Jura",
+                "Roboto",
+                "RobotoMono",
+                "SourceSans"
+              ],
+              "def": "Code"
+            },
+            {
+              "t": "input",
+              "id": "BackgroundImage",
+              "label": "Background Image",
+              "def": ""
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "dropdown",
+              "id": "ThemeManager_ThemeList",
+              "label": "Theme list",
+              "values": [
+                "Default",
+                "BBot",
+                "Fatality",
+                "Jester",
+                "Mint",
+                "Tokyo Night",
+                "Ubuntu",
+                "Quartz",
+                "Nord",
+                "Dracula",
+                "Monokai",
+                "Gruvbox",
+                "Solarized",
+                "Catppuccin",
+                "One Dark",
+                "Cyberpunk",
+                "Oceanic Next",
+                "Material"
+              ],
+              "def": "Default"
+            },
+            {
+              "t": "button",
+              "label": "Set as default"
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "input",
+              "id": "ThemeManager_CustomThemeName",
+              "label": "Custom theme name",
+              "def": ""
+            },
+            {
+              "t": "button",
+              "label": "Create theme"
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "dropdown",
+              "id": "ThemeManager_CustomThemeList",
+              "label": "Custom themes",
+              "values": [
+                "Loaded in game"
+              ],
+              "def": "Loaded in game"
+            },
+            {
+              "t": "button",
+              "label": "Load theme"
+            },
+            {
+              "t": "button",
+              "label": "Overwrite theme"
+            },
+            {
+              "t": "button",
+              "label": "Delete theme"
+            },
+            {
+              "t": "button",
+              "label": "Refresh list"
+            },
+            {
+              "t": "button",
+              "label": "Set as default"
+            },
+            {
+              "t": "button",
+              "label": "Reset default"
+            },
+            {
+              "t": "label",
+              "text": "Current default theme: ..."
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "input",
+              "id": "ThemeManager_ThemeJSON",
+              "label": "Theme JSON",
+              "def": ""
+            },
+            {
+              "t": "button",
+              "label": "Import theme"
+            },
+            {
+              "t": "button",
+              "label": "Export current theme"
+            }
+          ]
+        }
+      ],
+      "right": [
+        {
+          "title": "Configuration",
+          "icon": "FolderCog",
+          "items": [
+            {
+              "t": "input",
+              "id": "SaveManager_ConfigName",
+              "label": "Config name",
+              "def": ""
+            },
+            {
+              "t": "button",
+              "label": "Create config"
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "dropdown",
+              "id": "SaveManager_ConfigList",
+              "label": "Config list",
+              "values": [
+                "Loaded in game"
+              ],
+              "def": "Loaded in game"
+            },
+            {
+              "t": "button",
+              "label": "Load config"
+            },
+            {
+              "t": "button",
+              "label": "Overwrite config"
+            },
+            {
+              "t": "button",
+              "label": "Delete config"
+            },
+            {
+              "t": "button",
+              "label": "Refresh list"
+            },
+            {
+              "t": "button",
+              "label": "Set as autoload"
+            },
+            {
+              "t": "button",
+              "label": "Reset autoload"
+            },
+            {
+              "t": "label",
+              "text": "Current autoload config: ..."
+            },
+            {
+              "t": "divider"
+            },
+            {
+              "t": "input",
+              "id": "SaveManager_JSON",
+              "label": "Config JSON",
+              "def": ""
+            },
+            {
+              "t": "button",
+              "label": "Import config"
+            },
+            {
+              "t": "button",
+              "label": "Export current config"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
