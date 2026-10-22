@@ -1,0 +1,48 @@
+{
+  "game": "Example Game",
+  "tabs": [
+    {
+      "name": "Combat",
+      "icon": "Swords",
+      "pages": [
+        {
+          "name": "Main",
+          "left": [
+            {
+              "title": "Aimbot",
+              "icon": "Crosshair",
+              "items": [
+                { "t": "toggle", "id": "aim", "label": "Enabled", "def": false, "key": "E",
+                  "items": [
+                    { "t": "slider", "id": "fov", "label": "FOV", "min": 0, "max": 360, "def": 90, "suffix": "°" }
+                  ] },
+                { "t": "dropdown", "id": "part", "label": "Target part", "values": ["Head", "Torso"], "def": "Head" },
+                { "t": "button", "label": "Reset" }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "title": "Targets",
+              "icon": "Users",
+              "tabs": [
+                { "name": "Players", "items": [ { "t": "toggle", "id": "team", "label": "Team check", "def": true } ] },
+                { "name": "NPCs", "items": [ { "t": "toggle", "id": "npc", "label": "Include NPCs" } ] }
+              ]
+            }
+          ]
+        },
+        { "name": "Extra", "left": [], "right": [] }
+      ]
+    },
+    {
+      "name": "Settings",
+      "icon": "Settings",
+      "pinned": true,
+      "left": [
+        { "title": "Menu", "icon": "Palette", "items": [ { "t": "color", "id": "accent", "label": "Accent", "def": "#ff8800" } ] }
+      ],
+      "right": []
+    }
+  ]
+}

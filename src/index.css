@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Halloween: ink-purple night, pumpkin orange, witch purple */
+    --background: 265 40% 4%;
+    --foreground: 32 40% 94%;
+
+    --card: 265 32% 7%;
+    --card-foreground: 32 40% 94%;
+
+    --popover: 265 32% 7%;
+    --popover-foreground: 32 40% 94%;
+
+    --primary: 25 100% 55%;
+    --primary-foreground: 265 40% 4%;
+
+    --secondary: 268 28% 13%;
+    --secondary-foreground: 32 40% 94%;
+
+    --muted: 268 28% 13%;
+    --muted-foreground: 268 12% 62%;
+
+    --accent: 25 100% 55% / 0.08;
+    --accent-foreground: 32 40% 94%;
+
+    --destructive: 0 70% 52%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 268 30% 17%;
+    --input: 268 30% 17%;
+    --ring: 25 100% 55%;
+
+    --radius: 2px;
+
+    --pumpkin: 25 100% 55%;
+    --witch: 280 75% 62%;
+    --slime: 95 70% 52%;
+
+    --sidebar-background: 265 40% 4%;
+    --sidebar-foreground: 32 40% 94%;
+    --sidebar-primary: 25 100% 55%;
+    --sidebar-primary-foreground: 265 40% 4%;
+    --sidebar-accent: 25 100% 55% / 0.08;
+    --sidebar-accent-foreground: 32 40% 94%;
+    --sidebar-border: 268 30% 17%;
+    --sidebar-ring: 25 100% 55%;
+
+    /* Custom tokens */
+    --font-mono: 'Roboto Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+    --hover-glow: 0 0% 100% / 0.1;
+    --surface-glass: 0 0% 100% / 0.03;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-mono);
+  }
+
+  ::selection {
+    background: hsla(25, 100%, 55%, 0.35);
+    color: hsl(0, 0%, 100%);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(268, 30%, 22%);
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(25, 90%, 45%);
+  }
+}
+
+@layer utilities {
+  .glass-surface {
+    background: hsla(var(--surface-glass));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .hover-glow {
+    transition: background-color 200ms ease;
+  }
+  .hover-glow:hover {
+    background-color: hsla(var(--hover-glow));
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .text-meta {
+    color: hsl(268, 12%, 62%);
+  }
+
+  /* ---------- Halloween kit ---------- */
+  .text-pumpkin { color: hsl(var(--pumpkin)); }
+  .text-witch { color: hsl(var(--witch)); }
+  .text-slime { color: hsl(var(--slime)); }
+
+  .gradient-fire {
+    background-image: linear-gradient(100deg, #ffb347 0%, #ff6a00 38%, #c026d3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Card with corner brackets + pumpkin glow on hover */
+  .spooky-card {
+    position: relative;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+  }
+  .spooky-card::before,
+  .spooky-card::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid hsl(var(--pumpkin));
+    opacity: 0;
+    transition: opacity 220ms ease;
+    pointer-events: none;
+  }
+  .spooky-card::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+  .spooky-card::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+  .spooky-card:hover {
+    border-color: hsl(var(--pumpkin) / 0.5);
+    box-shadow: 0 0 32px -8px hsl(var(--pumpkin) / 0.35), inset 0 0 40px -30px hsl(var(--witch) / 0.6);
+  }
+  .spooky-card:hover::before,
+  .spooky-card:hover::after { opacity: 1; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: hsl(var(--pumpkin));
+  }
+
+  .glow-text { text-shadow: 0 0 22px hsl(var(--pumpkin) / 0.55); }
+
+  .flicker { animation: flicker 5s linear infinite; }
+  @keyframes flicker {
+    0%, 18%, 22%, 62%, 66%, 100% { opacity: 1; }
+    20%, 64% { opacity: 0.55; }
+    21% { opacity: 0.9; }
+  }
+
+  .float-slow { animation: floaty 6s ease-in-out infinite; }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .fog {
+    background:
+      radial-gradient(ellipse 60% 40% at 15% 100%, hsl(var(--witch) / 0.18), transparent 70%),
+      radial-gradient(ellipse 50% 35% at 85% 100%, hsl(var(--pumpkin) / 0.14), transparent 70%);
+  }
+
+  .bat-fly { animation: batfly 22s linear infinite; }
+  @keyframes batfly {
+    from { transform: translateX(-10vw) translateY(0); }
+    50% { transform: translateX(55vw) translateY(-40px); }
+    to { transform: translateX(110vw) translateY(10px); }
+  }
+  .wing { animation: flap 0.35s ease-in-out infinite alternate; transform-origin: center; }
+  @keyframes flap { from { transform: scaleY(1); } to { transform: scaleY(0.55); } }
+
+  /* Marquee */
+  .marquee-container {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+}
