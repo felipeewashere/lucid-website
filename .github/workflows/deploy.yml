@@ -27,6 +27,7 @@ jobs:
       - run: npm run build
         env:
           # Public values (the anon key is protected by row level security). Set them under Settings > Secrets and variables > Actions > Variables.
+          VITE_BASE: ${{ vars.VITE_BASE }}
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
       # GitHub Pages has no rewrites: unknown paths (/key, /dashboard...) serve 404.html, which is the app itself.
